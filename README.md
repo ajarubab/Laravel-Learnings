@@ -82,6 +82,11 @@ commands in sequence :
 Server running on [http://127.0.0.1:8000].  
 
 -----------------------------------------------------------------------------------------
-To create a view using artisan 
+To create a view using artisan command
 
 4. ➜ php artisan make:view firstCustomView
+
+-----------------------------------------------------------------------------------------
+To create a controller using artisan command
+
+4. ➜ php artisan make:controller FirstCustomViewController

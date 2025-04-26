@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FirstCustomViewController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -14,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('firstCustomView');
 // });
 
-Route::view('/fcv','firstCustomView');
+// Route::view('/fcv','firstCustomView');
+
+Route::get('/fcvc',[FirstCustomViewController::class,'show']);
