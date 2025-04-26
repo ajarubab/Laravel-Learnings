@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class FirstCustomViewController extends Controller
 {
-    function showFirstCustomViewPage($n){
-        return view('firstCustomView',['naam' => $n]);
+    function showListDetails(){
+        $name = ['Ram', 'Sita', 'Love', 'Kush', 'Shiv'];
+        return view('firstCustomView', ["names" => $name]);
     }
 }

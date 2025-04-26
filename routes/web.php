@@ -31,6 +31,8 @@ use Illuminate\Support\Facades\Route;
 
 // Route::view('/abc','firstCustomView', ["name" => "India"]);
 
-Route::get('/abc/{n}', function($name){
-    return view('firstCustomView',["nm" => $name]);
-})->where('n','[a-zA-Z0-9]+');
+// Route::get('/abc/{n}', function($name){
+//     return view('firstCustomView',["nm" => $name]);
+// })->where('n','[a-zA-Z0-9]+');
+
+Route::get('/abc',[FirstCustomViewController::class,'showListDetails']);
