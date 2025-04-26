@@ -80,3 +80,8 @@ commands in sequence :
 3. ➜ composer run dev
 
 Server running on [http://127.0.0.1:8000].  
+
+-----------------------------------------------------------------------------------------
+To create a view using artisan 
+
+4. ➜ php artisan make:view firstCustomView

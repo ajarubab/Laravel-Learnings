@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Route::get('/',function(){
+//     return "Hello people";
+// });
+
 Route::get('/',function(){
-    return "Hello people";
+    return view('firstCustomView');
 });
