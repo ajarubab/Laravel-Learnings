@@ -37,4 +37,8 @@ Route::get('/', function () {
 
 // Route::get('/abc',[FirstCustomViewController::class,'showListDetails']);
 
-Route::redirect('/abc','/');
+// Route::redirect('/abc','/');
+
+Route::get('/abcd', function(){
+    return redirect('/');
+});
