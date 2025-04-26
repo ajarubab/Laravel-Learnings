@@ -10,4 +10,8 @@ class FirstCustomViewController extends Controller
         $name = ['Ram', 'Sita', 'Love', 'Kush', 'Shiv'];
         return view('firstCustomView', ["names" => $name]);
     }
+
+    function toDefaultPage(){
+        return redirect('/');
+    }
 }

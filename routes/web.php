@@ -39,6 +39,8 @@ Route::get('/', function () {
 
 // Route::redirect('/abc','/');
 
-Route::get('/abcd', function(){
-    return redirect('/');
-});
+// Route::get('/abcd', function(){
+//     return redirect('/');
+// });
+
+Route::get('/xyz',[FirstCustomViewController::class,'toDefaultPage']);
