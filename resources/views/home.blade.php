@@ -1,10 +1,5 @@
-<div 
-    style="
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #fff;
-        color: Blue;
-">
-<h1>Welcome Home Dear<h /1>
+<div>
+    <h1>Home page</h1><br><br>
+    <a href="/">Welcome page</a><br><br>
+    <a href="/fcv">first Custom View page</a><br>
+</div>

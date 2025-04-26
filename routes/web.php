@@ -49,5 +49,6 @@ Route::get('/', function () {
 // Route::get('/abc/{x?}',function($greet = null){
 //     return view('home',["nm" => $greet]);
 // });
+Route::view('/fcv','firstCustomView');
 Route::view('/home','home');
-Route::get('/home',[FirstCustomViewController::class,'isPage']);
+// Route::get('/home',[FirstCustomViewController::class,'isPage']);
