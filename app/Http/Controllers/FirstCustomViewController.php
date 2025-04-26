@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class FirstCustomViewController extends Controller
 {
     function showFirstCustomViewPage(){
-        return view('firstCustomView');
+        return view('firstCustomView',['naam' => "Vicky Kumar"]);
     }
 }
