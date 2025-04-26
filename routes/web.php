@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/fcv/{a}',[FirstCustomViewController::class,'showfirstCustomViewPage']);
 
-Route::get('fcv/{n}', function($name){
-    return view('firstCustomView',["City" => $name]);
-});
+// Route::get('fcv/{n}', function($name){
+//     return view('firstCustomView',["City" => $name]);
+// });
+
+Route::view('/abc','firstCustomView', ["name" => "India"]);
