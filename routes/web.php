@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 //     return "Hello people";
 // });
 
-Route::get('/',function(){
-    return view('firstCustomView');
-});
+// Route::get('/',function(){
+//     return view('firstCustomView');
+// });
+
+Route::view('/fcv','firstCustomView');
