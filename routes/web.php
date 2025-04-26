@@ -23,4 +23,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('firstCustomView',["naam" => "Raja kumar prasad"]);
 // });
 
-Route::get('/fcv/{a}',[FirstCustomViewController::class,'showfirstCustomViewPage']);
+// Route::get('/fcv/{a}',[FirstCustomViewController::class,'showfirstCustomViewPage']);
+
+Route::get('fcv/{n}', function($name){
+    return view('firstCustomView',["City" => $name]);
+});
