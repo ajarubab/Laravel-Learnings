@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 // Route::view('/fcv','firstCustomView');
 
-Route::get('/fcvc',[FirstCustomViewController::class,'show']);
+Route::get('/fcv',[FirstCustomViewController::class,'showfirstCustomViewPage']);
