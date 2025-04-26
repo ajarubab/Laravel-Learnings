@@ -29,4 +29,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('firstCustomView',["City" => $name]);
 // });
 
-Route::view('/abc','firstCustomView', ["name" => "India"]);
+// Route::view('/abc','firstCustomView', ["name" => "India"]);
+
+Route::get('/fcv/{n?}', function($name = ""){
+    return view('firstCustomView',["naam" => $name]);
+});
