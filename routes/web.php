@@ -3,9 +3,9 @@
 use App\Http\Controllers\FirstCustomViewController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/',function(){
 //     return "Hello people";
@@ -35,4 +35,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('firstCustomView',["nm" => $name]);
 // })->where('n','[a-zA-Z0-9]+');
 
-Route::get('/abc',[FirstCustomViewController::class,'showListDetails']);
+// Route::get('/abc',[FirstCustomViewController::class,'showListDetails']);
+
+Route::redirect('/abc','/');
