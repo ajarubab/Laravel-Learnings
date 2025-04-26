@@ -14,4 +14,11 @@ class FirstCustomViewController extends Controller
     function toDefaultPage(){
         return redirect('/');
     }
+
+    function redirectPagetoHome(){
+        $name = ['Ram', 'Sita', 'Love', 'Kush', 'Shiv', ''];
+        $randomName = $name[array_rand($name)];
+        return redirect("/abc/" . $randomName);
+
+    }
 }

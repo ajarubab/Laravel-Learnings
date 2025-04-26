@@ -43,4 +43,9 @@ Route::get('/', function () {
 //     return redirect('/');
 // });
 
-Route::get('/xyz',[FirstCustomViewController::class,'toDefaultPage']);
+// Route::get('/xyz',[FirstCustomViewController::class,'toDefaultPage']);
+
+Route::get('/xyz',[FirstCustomViewController::class,'redirectPagetoHome']);
+Route::get('/abc/{x?}',function($greet = null){
+    return view('home',["nm" => $greet]);
+});
