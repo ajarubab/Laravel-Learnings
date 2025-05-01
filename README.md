@@ -89,4 +89,9 @@ To create a view using artisan command
 -----------------------------------------------------------------------------------------
 To create a controller using artisan command
 
-4. ➜ php artisan make:controller FirstCustomViewController
+5. ➜ php artisan make:controller FirstCustomViewController
+
+-----------------------------------------------------------------------------------------
+To create a component using artisan command
+
+5. ➜ php artisan make:component Notifications

@@ -10,7 +10,7 @@ class Usercontroller extends Controller
     private function getUserData()
     {
         return [
-            'meraNaam' => 'Rajat',
+            'meraNaam' => 'Rajat Thakur',
             'restUsers' => ['tom', 'sam', 'nik', 'zen']
         ];
     }

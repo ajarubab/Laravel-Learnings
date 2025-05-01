@@ -56,3 +56,6 @@ Route::get('/', function () {
 
 Route::get('/user',[Usercontroller::class,'showMyName']); 
 Route::get('/assignment', [UserController::class, 'showAssignment']);
+Route::view('/','welcome');
+Route::view('/fcv','firstCustomView');
+Route::view('/home','home');

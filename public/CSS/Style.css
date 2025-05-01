@@ -1,0 +1,23 @@
+.success {
+    background-color : greenyellow;
+    padding : 3px 10px;
+    border-radius : 2px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.failure {
+    background-color : rgb(246, 135, 122);
+    padding : 3px 10px;
+    border-radius : 2px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.warning {
+    background-color : rgb(242, 246, 159);
+    padding : 3px 10px;
+    border-radius : 2px;
+    display: inline-block;
+    margin: 5px;
+}
