@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FirstCustomViewController;
+use App\Http\Controllers\Usercontroller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -49,6 +50,9 @@ Route::get('/', function () {
 // Route::get('/abc/{x?}',function($greet = null){
 //     return view('home',["nm" => $greet]);
 // });
-Route::view('/fcv','firstCustomView');
-Route::view('/home','home');
+// Route::view('/fcv','firstCustomView');
+// Route::view('/home','home');
 // Route::get('/home',[FirstCustomViewController::class,'isPage']);
+
+Route::get('/user',[Usercontroller::class,'showMyName']);
+Route::get('/assignment', [UserController::class, 'showAssignment']);
