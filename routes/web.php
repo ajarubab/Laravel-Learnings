@@ -54,5 +54,5 @@ Route::get('/', function () {
 // Route::view('/home','home');
 // Route::get('/home',[FirstCustomViewController::class,'isPage']);
 
-Route::get('/user',[Usercontroller::class,'showMyName']);
+Route::get('/user',[Usercontroller::class,'showMyName']); 
 Route::get('/assignment', [UserController::class, 'showAssignment']);

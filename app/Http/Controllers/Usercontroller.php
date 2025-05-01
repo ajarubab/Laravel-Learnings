@@ -6,20 +6,34 @@ use Illuminate\Http\Request;
 
 class Usercontroller extends Controller
 {
-    function showMyName()
+    // Reusable private method to return user-related data
+    private function getUserData()
     {
-        $myName = "Rajat";
-        $otherUser = ['tom', 'sam', 'nik', 'zen'];
-        return view('user', ['meraNaam' => $myName], ['restUsers' => $otherUser]);
+        return [
+            'meraNaam' => 'Rajat',
+            'restUsers' => ['tom', 'sam', 'nik', 'zen']
+        ];
+    }
+
+    public function showMyName()
+    {
+        $userData = $this->getUserData();
+        $msg = 'Hello from user view';
+        return view('user', $userData, ['message'=>$msg]);
     }
 
     public function showAssignment()
     {
         $assignment = new \stdClass();
         $assignment->title = 'Math Homework';
-        $assignment->submitted = false; // make it true to see the working of unless block
+        $assignment->submitted = false;
 
-        return view('assignment', compact('assignment'));
+        $userData = $this->getUserData(); // reusing data
+
+        return view('assignment', array_merge(
+            compact('assignment'),
+            $userData
+        ));
     }
 }
 
