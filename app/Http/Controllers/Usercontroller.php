@@ -22,3 +22,5 @@ class Usercontroller extends Controller
         return view('assignment', compact('assignment'));
     }
 }
+
+
