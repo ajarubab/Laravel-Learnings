@@ -35,6 +35,10 @@ class Usercontroller extends Controller
             $userData
         ));
     }
+
+    function getUserFormData(Request $req){
+        return $req;
+    }
 }
 
 

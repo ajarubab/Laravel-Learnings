@@ -59,3 +59,6 @@ Route::get('/assignment', [UserController::class, 'showAssignment']);
 Route::view('/','welcome');
 Route::view('/fcv','firstCustomView');
 Route::view('/home','home');
+
+Route::view('/form','user-form');
+Route::post('/form-data',[Usercontroller::class,'getUserFormData']);
