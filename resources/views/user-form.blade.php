@@ -1,8 +1,15 @@
 <div>
-
     <h2>User- form</h2>
-
 </div>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div>
     <form action="/form-data" method="post">
