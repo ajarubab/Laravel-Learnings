@@ -37,6 +37,15 @@ class Usercontroller extends Controller
     }
 
     function getUserFormData(Request $req){
+        $req->validate([
+            'username' => 'required',
+            'email' => 'required | email',
+            'phone' => 'required',
+            'password' => 'required',
+            'skill' => 'required',
+            'gender' => 'required',
+            'city' => 'required',
+        ]);
         return $req;
     }
 }
