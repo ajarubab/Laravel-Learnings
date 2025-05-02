@@ -41,10 +41,13 @@ class Usercontroller extends Controller
             'username' => 'required',
             'email' => 'required | email',
             'phone' => 'required',
-            'password' => 'required',
+            'create_password' => 'required',
+            'confirm_password' => 'required| same:create_password',
             'skill' => 'required',
             'gender' => 'required',
             'city' => 'required',
+            'age' => 'required',
+            'dob' => 'required',
         ]);
         return $req;
     }
