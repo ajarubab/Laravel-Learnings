@@ -87,7 +87,6 @@ class Usercontroller extends Controller
             'skill.required' => "You need to have atleast one skill.",
             'gender.required' => "Please choose your gender.",
             'city.required' => "Please choose your City.",
-            'dob.required' => "Please enter your date of birth."
         ]
     );
         return $req;
