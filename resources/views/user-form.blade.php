@@ -34,15 +34,19 @@
                 <span style="color: red;">@error ('phone') {{$message}}@enderror</span>
             </div><br>
             <div class="form-wrapper">
-            <label for="create_password">Create Password : </label>
-            <input id="createPass" type="password" placeholder="Create Password" name="create_password">
-            <span id="createPassError" style="color:red">@error('create_password'){{$message}}@enderror</span><br>
+                <label for="create_password">Create Password:</label>
+                <input id="createPass" type="password" placeholder="Create Password" name="create_password">
+                <span id="toggleCreatePass" style="cursor: pointer;">👁️</span>
+                <span id="createPassError" style="color:red">@error('create_password'){{$message}}@enderror</span>
             </div><br>
+
             <div class="form-wrapper">
-            <label for="confirm_password">Confirm Password : </label>
-            <input id="confirmPass" type="password" placeholder="Confirm Password" name="confirm_password">
-            <span id="confirmPassError" style="color:red">@error('confirm_password'){{$message}}@enderror</span><br>
+                <label for="confirm_password">Confirm Password:</label>
+                <input id="confirmPass" type="password" placeholder="Confirm Password" name="confirm_password">
+                <span id="toggleConfirmPass" style="cursor: pointer;">👁️</span>
+                <span id="confirmPassError" style="color:red">@error('confirm_password'){{$message}}@enderror</span>
             </div><br>
+
             <h3>User Skills : </h3>
             <div class="form-wrapper">
                 <label for="php">PHP </label>
@@ -91,8 +95,13 @@
                 </select>
                 <span style="color: red;">@error ('city') {{$message}}@enderror</span>
             </div><br>
+            <div>
+                <input type="checkbox" id='i_agree' name="i_agree"
+                    value='I Agree' onchange="toggleSubmitButton()">
+                <label for="i_agree">I agree to share my information by this form to form owner.</label>
+            </div>
             <div class="form-wrapper">
-                <button type="submit">Login</button>
+                <button id="submitButton" type="submit" disabled>Signup</button>
             </div><br>
         </form>
     </div>
@@ -101,6 +110,17 @@
 </html>
 
 <script>
+    // Make create password and confirm password fields inputs visible and non-visible in eye icon click
+    document.getElementById('toggleCreatePass').addEventListener('click', function() {
+        const passField = document.getElementById('createPass');
+        passField.type = passField.type === 'password' ? 'text' : 'password';
+    });
+
+    document.getElementById('toggleConfirmPass').addEventListener('click', function() {
+        const passField = document.getElementById('confirmPass');
+        passField.type = passField.type === 'password' ? 'text' : 'password';
+    });
+
     // script to update the slider value for Age
     function updateAgeValue(value) {
         document.getElementById('ageValue').textContent = value;
@@ -117,9 +137,11 @@
         updateAgeValue(this.value);
     });
 </script>
+
 <!-- scripts to use  jQuery UI Datepicker -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
 <script>
     $("#jquery-datepicker").datepicker({
         dateFormat: "dd-mm-yy",
@@ -127,5 +149,22 @@
         changeYear: true,
         yearRange: "1900:+0",
         maxDate: 0
+    });
+</script>
+<script>
+    // submit button activation on i agree checkbox click
+    document.addEventListener('DOMContentLoaded', function() {
+        const iAgreeCheckbox = document.getElementById('i_agree');
+        const submitButton = document.getElementById('submitButton');
+
+        function toggleSubmitButton() {
+            submitButton.disabled = !iAgreeCheckbox.checked;
+        }
+
+        // Initial state
+        toggleSubmitButton();
+
+        // Event listener for checkbox
+        iAgreeCheckbox.addEventListener('change', toggleSubmitButton);
     });
 </script>
