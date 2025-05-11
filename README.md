@@ -95,4 +95,7 @@ To create a controller using artisan command
 To create a component using artisan command
 
 6. ➜ php artisan make:component Notifications
+-----------------------------------------------------------------------------------------
+To publish validation.php file using artisan command
 
+7. ➜ php artisan lang:publish
