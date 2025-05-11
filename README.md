@@ -94,4 +94,5 @@ To create a controller using artisan command
 -----------------------------------------------------------------------------------------
 To create a component using artisan command
 
-5. ➜ php artisan make:component Notifications
+6. ➜ php artisan make:component Notifications
+

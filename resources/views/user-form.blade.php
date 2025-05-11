@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Form</title>
+    <link rel="stylesheet" href="{{'CSS/Style.css'}}">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
@@ -19,30 +20,31 @@
             @csrf
             <div class="form-wrapper">
                 <label for="username">Username : </label>
-                <input type="text" placeholder="Enter username" name="username" value="{{old('username')}}">
+                <input type="text" placeholder="Enter username" name="username" value="{{old('username')}}"
+                    class="{{$errors->first('username')?'input-error':''}}">
                 <span style="color: red;">@error ('username') {{$message}}@enderror</span>
             </div><br>
             <div class="form-wrapper">
                 <label for="email">User Email : </label>
-                <input type="email" placeholder="Enter Email Id" name="email" value="{{old('email')}}">
+                <input class="{{$errors->first('email')?'input-error':''}}" type="email" placeholder="Enter Email Id" name="email" value="{{old('email')}}">
                 <span style="color: red;">@error ('email') {{$message}}@enderror</span>
 
             </div><br>
             <div class="form-wrapper">
                 <label for="phone">Phone : </label>
-                <input type="text" placeholder="Enter Phone Number" name="phone" value="{{old('phone')}}">
+                <input class="{{$errors->first('phone')?'input-error':''}}" type="text" placeholder="Enter Phone Number" name="phone" value="{{old('phone')}}">
                 <span style="color: red;">@error ('phone') {{$message}}@enderror</span>
             </div><br>
             <div class="form-wrapper">
                 <label for="create_password">Create Password:</label>
-                <input id="createPass" type="password" placeholder="Create Password" name="create_password">
+                <input class="{{$errors->first('create_password')?'input-error':''}}" id="createPass" type="password" placeholder="Create Password" name="create_password">
                 <span id="toggleCreatePass" style="cursor: pointer;">👁️</span>
                 <span id="createPassError" style="color:red">@error('create_password'){{$message}}@enderror</span>
             </div><br>
 
             <div class="form-wrapper">
                 <label for="confirm_password">Confirm Password:</label>
-                <input id="confirmPass" type="password" placeholder="Confirm Password" name="confirm_password">
+                <input class="{{$errors->first('confirm_password')?'input-error':''}}" id="confirmPass" type="password" placeholder="Confirm Password" name="confirm_password">
                 <span id="toggleConfirmPass" style="cursor: pointer;">👁️</span>
                 <span id="confirmPassError" style="color:red">@error('confirm_password'){{$message}}@enderror</span>
             </div><br>
