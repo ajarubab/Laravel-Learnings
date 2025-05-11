@@ -72,7 +72,24 @@ class Usercontroller extends Controller
             'city' => 'required',
             'age' => ['required','integer','between:1,65'],
             'dob' => ['required', 'date', 'before:today'],
-        ]);
+        ],
+        [
+            'username.required' => "Username can't be empty.",
+            'username.min' => "Username should contain at least 3 characters.",
+            'username.regex' => "Username should contain characters and spaces only.",
+            'email.required' => "User Email can't be empty.",
+            'phone.required' => "User Phone number can't be empty.",
+            'phone.regex' => "Phone number must start with 6,7,8 or 9",
+            'create_password.required' => "Create Password field can't be empty.",
+            'create_password.regex' => "password must contain atlest one uppercase letter, one lowercase letter, one digit and one special character.",
+            'confirm_password.required' => "Confirm Password field can't be empty.",
+            'confirm_password.same' => "Password confirmation failed, please try again.",
+            'skill.required' => "You need to have atleast one skill.",
+            'gender.required' => "Please choose your gender.",
+            'city.required' => "Please choose your City.",
+            'dob.required' => "Please enter your date of birth."
+        ]
+    );
         return $req;
     }
 }
