@@ -16,7 +16,7 @@
         <h2>User- form</h2>
     </div>
     <div>
-        <form action="/form-data" method="post">
+        <form action="/form-data" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-wrapper">
                 <label for="username">Username : </label>
@@ -98,10 +98,14 @@
                 <span style="color: red;">@error ('city') {{$message}}@enderror</span>
             </div><br>
             <div>
+            <label for="document">Upload Document:</label>
+            <input class="{{$errors->first('document')?'input-error':''}}" type="file" name="document" id="document" required>
+            </div><br>
+            <div>
                 <input type="checkbox" id='i_agree' name="i_agree"
                     value='I Agree' onchange="toggleSubmitButton()">
                 <label for="i_agree">I agree to share my information by this form to form owner.</label>
-            </div>
+            </div><br>
             <div class="form-wrapper">
                 <button id="submitButton" type="submit" disabled>Signup</button>
             </div><br>

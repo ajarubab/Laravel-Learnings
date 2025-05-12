@@ -99,3 +99,17 @@ To create a component using artisan command
 To publish validation.php file using artisan command
 
 7. ➜ php artisan lang:publish
+-----------------------------------------------------------------------------------------
+To access the files of path "storage/app/public/uploads/" we create a symboilic link by the artisan command :
+
+8. ➜ php artisan storage:link
+
+with 
+
+➜ chmod -R 775 storage
+➜ chmod -R 775 bootstrap/cache
+
+results : 
+for $file->storeAs('public/uploads', 'abc.pdf');
+the link "http://localhost/storage/uploads/abc.pdf" is accesible now.
+
