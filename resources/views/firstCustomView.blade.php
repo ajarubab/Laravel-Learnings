@@ -1,10 +1,11 @@
 <div>
     <h1>First Custom View page</h1><br><br>
     <a href="/welcome">Welcome page</a><br><br>
-    <a href="/home">Home page</a><br>
+    <a href="{{URL('user')}}">User View page</a><br>
+    <a href="{{URL::to('home')}}">Home page</a><br><br>
 </div>
-<h2>Current Page URL without arguments method 1 : {{URL::current()}}</h2>
-<h2>Previous Page URL without arguments method 1 : {{URL::previous()}}</h2>
+<h2>Current Page URL  : {{URL::current()}}</h2>
+<h2>Previous Page URL : {{URL::previous()}}</h2>
 <br>
 <div>
     <x-notifications ntf="Amount credited Sucessfully" class="success" />

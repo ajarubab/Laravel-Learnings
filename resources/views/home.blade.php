@@ -11,7 +11,8 @@
     <h2>Previous Page URL with arguments method 2 : {{url()->previous()}}</h2>
     <br>
     <a href="/welcome">Welcome page</a><br><br>
-    <a href="/fcv">first Custom View page</a><br>
+    <a href="{{URL('user')}}">User View page</a><br><br>
+    <a href="{{URL::to('fcv')}}">first Custom View page</a><br>
 </div>
 <br>
 <div>
