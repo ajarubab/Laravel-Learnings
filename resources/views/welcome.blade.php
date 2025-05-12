@@ -3,6 +3,8 @@
     <a href="/home">Home page</a><br><br>
     <a href="/fcv">first Custom View page</a><br>
 </div>
+<h2>Current Page URL without arguments method 1 : {{URL::current()}}</h2>
+<h2>Previous Page URL without arguments method 1 : {{URL::previous()}}</h2>
 <br>
 <div>
     <x-notifications ntf="Reached Home within time" class="success" />
