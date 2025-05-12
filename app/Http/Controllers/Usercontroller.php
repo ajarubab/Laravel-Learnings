@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 
 class Usercontroller extends Controller
 {
@@ -65,7 +66,15 @@ class Usercontroller extends Controller
             'username' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'min:3'],
             'email' => ['required', 'email', 'regex:/^(?!.*\.\.)[a-zA-Z0-9._-]{3,}@[a-zA-Z]{2,}[a-zA-Z0-9-]*(\.[a-zA-Z]{2,})+$/'],
             'phone' => ['required', 'numeric', 'digits:10', 'regex:/^[6-9]/'],
-            'create_password' => ['required', 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/'],
+            'create_password' => [
+            'required',
+            Password::min(8)        // Minimum 8 characters
+                    ->letters()     // At least one letter
+                    ->mixedCase()  // At least one uppercase and one lowercase letter
+                    ->numbers()    // At least one number
+                    ->symbols()    // At least one symbol
+                    ->uncompromised(), // Not in known data leaks
+        ],
             'confirm_password' => ['required', 'same:create_password'],
             'skill' => 'required',
             'gender' => 'required',
