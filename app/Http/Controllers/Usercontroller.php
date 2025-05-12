@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Rules\OnlyDotInDomain;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
 
@@ -48,17 +49,6 @@ class Usercontroller extends Controller
      * [a-zA-Z0-9-]*                     # match zero or more letters, digits, or hyphens for domain name optionally.
      * (\.[a-zA-Z]{2,})+                 # match a dot . and the atleat 2 letters having multiple segments for TLD(top level domain).
      * $                                 # End of string
-     *
-     * create password regex meaning
-     *
-     * ^                                 # Start of string
-     * (?=.*[A-Z])                       # Must contain at least one uppercase letter
-     * (?=.*[a-z])                       # Must contain at least one lowercase letter
-     * (?=.*\d)                          # Must contain at least one digit
-     * (?=.*[@$!%*?&#])                   # Must contain at least one special character from [@,$,!,%,*,?,&,#]
-     * [A-Za-z\d@$!%*?&#]{8,}             # Allowed characters [alphabets, digits,@,$,!,%,*,?,&,#](only these), and at least 8 characters long
-     * $                                 # End of string
-
      */
 
     function getUserFormData(Request $req)
@@ -66,7 +56,7 @@ class Usercontroller extends Controller
         $req->validate(
             [
                 'username' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'min:3'],
-                'email' => ['required', 'email', 'regex:/^(?!.*\.\.)[a-zA-Z0-9._-]{3,}@[a-zA-Z]{2,}[a-zA-Z0-9-]*(\.[a-zA-Z]{2,})+$/'],
+                'email' => ['required', 'email', new OnlyDotInDomain, 'regex:/^(?!.*\.\.)[a-zA-Z0-9._-]{3,}@[a-zA-Z]{2,}[a-zA-Z0-9-]*(\.[a-zA-Z]{2,})+$/'],
                 'phone' => ['required', 'numeric', 'digits:10', 'regex:/^[6-9]/'],
                 'create_password' => [
                     'required',
@@ -106,19 +96,19 @@ class Usercontroller extends Controller
         );
         $data = $req->except('document'); // get all inputs except file
 
-    if ($req->hasFile('document')) {
-        $file = $req->file('document');
-        $filename = $file->getClientOriginalName();
-        $path = $file->storeAs('uploads', $filename, 'public');
-        $url = asset('storage/' . $path);
+        if ($req->hasFile('document')) {
+            $file = $req->file('document');
+            $filename = $file->getClientOriginalName();
+            $path = $file->storeAs('uploads', $filename, 'public');
+            $url = asset('storage/' . $path);
 
-        // Add file details to response data
-        $data['document'] = [
-            'uploaded_file' => $file->getClientOriginalName(),
-            'size' => ($file->getSize()/1000).' KB',
-        ];
+            // Add file details to response data
+            $data['document'] = [
+                'uploaded_file' => $file->getClientOriginalName(),
+                'size' => ($file->getSize() / 1000) . ' KB',
+            ];
+        }
+
+        return response()->json($data);
     }
-
-    return response()->json($data);
-}
 }

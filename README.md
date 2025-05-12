@@ -112,4 +112,9 @@ with
 results : 
 for $file->storeAs('public/uploads', 'abc.pdf');
 the link "http://localhost/storage/uploads/abc.pdf" is accesible now.
+-----------------------------------------------------------------------------------------
+To create a custom validation rule using artisan command
 
+9. ➜ php artisan make:rule OnlyDotInDomain
+
+It creates a Folder named Rules in app folder and within it the custum rule files are situated.
