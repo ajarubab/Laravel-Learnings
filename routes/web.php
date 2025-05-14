@@ -55,34 +55,38 @@ Route::get('/welcome', function () {
 // Route::view('/home','home');
 // Route::get('/home',[FirstCustomViewController::class,'isPage']);
 
-Route::get('/user',[Usercontroller::class,'showMyName']); 
+Route::get('/user', [Usercontroller::class, 'showMyName']);
 Route::get('/assignment', [UserController::class, 'showAssignment']);
-Route::view('/welcome','welcome');
-Route::view('/fcv','firstCustomView');
-Route::view('/fcv/{x}/{y}','firstCustomView');
-Route::view('/home','home');
-Route::view('/fcv/user/profile/dob','firstCustomView')->name('dob');
+Route::view('/welcome', 'welcome');
+Route::view('/fcv', 'firstCustomView');
+Route::view('/fcv/{x}/{y}', 'firstCustomView');
+Route::view('/home', 'home');
+Route::view('/fcv/user/profile/dob', 'firstCustomView')->name('dob');
 
-Route::view('/form','user-form');
-Route::post('/form-data',[Usercontroller::class,'getUserFormData']);
+Route::view('/form', 'user-form');
+Route::post('/form-data', [Usercontroller::class, 'getUserFormData']);
 
-Route::view('/ab/cd/ef/gh/ij/kl/mn/op/fcv','firstCustomView')->name('lfc');
-Route::get('/show',[FirstCustomViewController::class,'showNamedRoutedFunction']);
+Route::view('/ab/cd/ef/gh/ij/kl/mn/op/fcv', 'firstCustomView')->name('lfc');
+Route::get('/show', [FirstCustomViewController::class, 'showNamedRoutedFunction']);
 
-Route::view('/bolo/{x}/{y}/{z}','firstCustomView')->name('dfc');
-Route::get('/jai',[FirstCustomViewController::class,'showDyNamedRoutedFunction']);
+Route::view('/bolo/{x}/{y}/{z}', 'firstCustomView')->name('dfc');
+Route::get('/jai', [FirstCustomViewController::class, 'showDyNamedRoutedFunction']);
 
-Route::get('/std',[StudentController::class,'show']);
-Route::prefix('student/academics')->group(function(){
-    Route::get("/firstyear",[StudentController::class,'firstYearAcademics'])->name('saf');
-    Route::get("/secondyear",[StudentController::class,'secondYearAcademics'])->name('sas');
-    Route::get("/thirdyear",[StudentController::class,'thirdYearAcademics'])->name('sat');
-    Route::get("/lastyear",[StudentController::class,'finalYearAcademics'])->name('sal');
+Route::get('/std', [StudentController::class, 'show']);
+
+Route::controller(StudentController::class)->group(function () {
+    Route::prefix('student/academics')->group(function () {
+        Route::get("/firstyear", 'firstYearAcademics')->name('saf');
+        Route::get("/secondyear", 'secondYearAcademics')->name('sas');
+        Route::get("/thirdyear", 'thirdYearAcademics')->name('sat');
+        Route::get("/lastyear", 'finalYearAcademics')->name('sal');
+    });
+    Route::prefix('/student/sports')->group(function () {
+        Route::get("/firstyear",'firstYearSports')->name('ssf');
+        Route::get("/secondyear",'secondYearSports')->name('sss');
+        Route::get("/thirdyear",'thirdYearSports')->name('sst');
+        Route::get("/lastyear",'finalYearSports')->name('ssl');
+    });
 });
 
-Route::prefix('/student/sports')->group(function(){
-    Route::get("/firstyear",[StudentController::class,'firstYearSports'])->name('ssf');
-    Route::get("/secondyear",[StudentController::class,'secondYearSports'])->name('sss');
-    Route::get("/thirdyear",[StudentController::class,'thirdYearSports'])->name('sst');
-    Route::get("/lastyear",[StudentController::class,'finalYearSports'])->name('ssl');
-});
+
