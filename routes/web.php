@@ -60,6 +60,7 @@ Route::view('/welcome','welcome');
 Route::view('/fcv','firstCustomView');
 Route::view('/fcv/{x}/{y}','firstCustomView');
 Route::view('/home','home');
+Route::view('/fcv/user/profile/dob','firstCustomView')->name('dob');
 
 Route::view('/form','user-form');
 Route::post('/form-data',[Usercontroller::class,'getUserFormData']);
