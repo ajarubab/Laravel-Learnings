@@ -64,3 +64,6 @@ Route::view('/fcv/user/profile/dob','firstCustomView')->name('dob');
 
 Route::view('/form','user-form');
 Route::post('/form-data',[Usercontroller::class,'getUserFormData']);
+
+Route::view('/ab/cd/ef/gh/ij/kl/mn/op/fcv','firstCustomView')->name('lfc');
+Route::get('/show',[FirstCustomViewController::class,'showNamedRoutedFunction']);

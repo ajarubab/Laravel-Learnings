@@ -42,4 +42,10 @@ class FirstCustomViewController extends Controller
             <h1>No such page exists<h/1>
         ';
     }
+
+    function showNamedRoutedFunction(){
+        // return redirect('/ab/cd/ef/fcv');
+        // return redirect()->to('/ab/cd/ef/fcv');
+        return to_route('lfc');
+    }
 }
