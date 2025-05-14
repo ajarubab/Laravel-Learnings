@@ -67,3 +67,6 @@ Route::post('/form-data',[Usercontroller::class,'getUserFormData']);
 
 Route::view('/ab/cd/ef/gh/ij/kl/mn/op/fcv','firstCustomView')->name('lfc');
 Route::get('/show',[FirstCustomViewController::class,'showNamedRoutedFunction']);
+
+Route::view('/bolo/{x}/{y}/{z}','firstCustomView')->name('dfc');
+Route::get('/jai',[FirstCustomViewController::class,'showDyNamedRoutedFunction']);

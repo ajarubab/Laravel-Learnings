@@ -48,4 +48,8 @@ class FirstCustomViewController extends Controller
         // return redirect()->to('/ab/cd/ef/fcv');
         return to_route('lfc');
     }
+
+    function showDyNamedRoutedFunction(){
+        return to_route('dfc',['jai','siya','ram']);
+    }
 }
