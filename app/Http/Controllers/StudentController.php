@@ -33,4 +33,14 @@ class StudentController extends Controller
     function finalYearSports(){
         return "Final year Sports stuff";
     }
+    function about($nm = null){
+        return view(
+            'student',
+            [
+                'naam' => $nm,
+                'University' => "Indian Institute of Computer Education",
+            ]
+        );
+    }
+    
 }

@@ -75,6 +75,7 @@ Route::get('/jai', [FirstCustomViewController::class, 'showDyNamedRoutedFunction
 Route::get('/std', [StudentController::class, 'show']);
 
 Route::controller(StudentController::class)->group(function () {
+    Route::get("/abt/{x?}", 'about');
     Route::prefix('student/academics')->group(function () {
         Route::get("/firstyear", 'firstYearAcademics')->name('saf');
         Route::get("/secondyear", 'secondYearAcademics')->name('sas');

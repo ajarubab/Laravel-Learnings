@@ -1,5 +1,9 @@
 <div>
-    <h1>Student page</h1>
+    <h1>{{$University}}</h1>
+    
+    <h2>{{$naam}}</h2>
+   
+
     <div class="fisrt Year">
     <span><a href="{{ route('saf') }}">First year Academic</a></span>&nbsp;&nbsp;&nbsp;&nbsp;
     <span><a href="{{ route('ssf') }}">First year Sports</a></span>
