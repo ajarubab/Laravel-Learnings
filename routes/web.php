@@ -72,16 +72,17 @@ Route::get('/show',[FirstCustomViewController::class,'showNamedRoutedFunction'])
 Route::view('/bolo/{x}/{y}/{z}','firstCustomView')->name('dfc');
 Route::get('/jai',[FirstCustomViewController::class,'showDyNamedRoutedFunction']);
 
+Route::get('/std',[StudentController::class,'show']);
 Route::prefix('student/academics')->group(function(){
-    Route::get("/firstyear",[StudentController::class,'firstYearAcademics']);
-    Route::get("/secondyear",[StudentController::class,'secondYearAcademics']);
-    Route::get("/thirdyear",[StudentController::class,'thirdYearAcademics']);
-    Route::get("/finalyear",[StudentController::class,'finalYearAcademics']);
+    Route::get("/firstyear",[StudentController::class,'firstYearAcademics'])->name('saf');
+    Route::get("/secondyear",[StudentController::class,'secondYearAcademics'])->name('sas');
+    Route::get("/thirdyear",[StudentController::class,'thirdYearAcademics'])->name('sat');
+    Route::get("/lastyear",[StudentController::class,'finalYearAcademics'])->name('sal');
 });
 
 Route::prefix('/student/sports')->group(function(){
-    Route::get("/firstyear",[StudentController::class,'firstYearSports']);
-    Route::get("/secondyear",[StudentController::class,'secondYearSports']);
-    Route::get("/thirdyear",[StudentController::class,'thirdYearSports']);
-    Route::get("/finalyear",[StudentController::class,'finalYearSports']);
+    Route::get("/firstyear",[StudentController::class,'firstYearSports'])->name('ssf');
+    Route::get("/secondyear",[StudentController::class,'secondYearSports'])->name('sss');
+    Route::get("/thirdyear",[StudentController::class,'thirdYearSports'])->name('sst');
+    Route::get("/lastyear",[StudentController::class,'finalYearSports'])->name('ssl');
 });

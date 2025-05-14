@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    function show(){
+        return view('student');
+    }
     function firstYearAcademics(){
         return "First year Academic stuff";
     }
