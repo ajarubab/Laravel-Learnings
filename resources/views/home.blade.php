@@ -13,6 +13,7 @@
     <a href="/welcome">Welcome page</a><br><br>
     <a href="{{URL('user')}}">User View page</a><br><br>
     <a href="{{URL::to('fcv')}}">first Custom View page</a><br>
+    <a href="{{URL::to('fcv',['Rajat','Romi'])}}">first Custom View Rajat page</a><br>
 </div>
 <br>
 <div>
