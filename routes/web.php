@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FirstCustomViewController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Usercontroller;
 use Illuminate\Support\Facades\Route;
 
@@ -70,3 +71,17 @@ Route::get('/show',[FirstCustomViewController::class,'showNamedRoutedFunction'])
 
 Route::view('/bolo/{x}/{y}/{z}','firstCustomView')->name('dfc');
 Route::get('/jai',[FirstCustomViewController::class,'showDyNamedRoutedFunction']);
+
+Route::prefix('student/academics')->group(function(){
+    Route::get("/firstyear",[StudentController::class,'firstYearAcademics']);
+    Route::get("/secondyear",[StudentController::class,'secondYearAcademics']);
+    Route::get("/thirdyear",[StudentController::class,'thirdYearAcademics']);
+    Route::get("/finalyear",[StudentController::class,'finalYearAcademics']);
+});
+
+Route::prefix('/student/sports')->group(function(){
+    Route::get("/firstyear",[StudentController::class,'firstYearSports']);
+    Route::get("/secondyear",[StudentController::class,'secondYearSports']);
+    Route::get("/thirdyear",[StudentController::class,'thirdYearSports']);
+    Route::get("/finalyear",[StudentController::class,'finalYearSports']);
+});

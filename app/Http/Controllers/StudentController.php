@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class StudentController extends Controller
+{
+    function firstYearAcademics(){
+        return "First year Academic stuff";
+    }
+    function firstYearSports(){
+        return "First year Sports stuff";
+    }
+    function secondYearAcademics(){
+        return "Second year Academic stuff";
+    }
+    function secondYearSports(){
+        return "Second year Sports stuff";
+    }
+    function thirdYearAcademics(){
+        return "Third year Academic stuff";
+    }
+    function thirdYearSports(){
+        return "Third year Sports stuff";
+    }
+    function finalYearAcademics(){
+        return "Final year Academic stuff";
+    }
+    function finalYearSports(){
+        return "Final year Sports stuff";
+    }
+}
