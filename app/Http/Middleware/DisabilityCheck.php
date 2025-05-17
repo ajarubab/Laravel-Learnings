@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AgeCheck
+class DisabilityCheck
 {
     /**
      * Handle an incoming request.
@@ -15,12 +15,13 @@ class AgeCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $validDisabilities = ['n', 'no', 'na'];
         if (
-            $request->has('age')
+            $request->has('dis')
             &&
-            $request->age < 18
+            !in_array(strtolower($request->dis), $validDisabilities)
         ) {
-            abort(403, "You are under Age.");
+            abort(403, ' You cannot proceed ahead as you are specialy abled.');
         }
         return $next($request);
     }

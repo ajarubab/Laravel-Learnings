@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AgeCheck
+class GenderCheck
 {
     /**
      * Handle an incoming request.
@@ -15,12 +15,13 @@ class AgeCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $validGender = ['m', 'male', 'f', 'fe', 'female'];
         if (
-            $request->has('age')
+            $request->has('gender')
             &&
-            $request->age < 18
+            !in_array(strtolower($request->gender), $validGender)
         ) {
-            abort(403, "You are under Age.");
+            abort(403, ' You are neither male nor female.');
         }
         return $next($request);
     }

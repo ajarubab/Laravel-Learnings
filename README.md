@@ -126,4 +126,6 @@ To create a middleware using artisan command
 It creates a Folder named Middleware in app/Http and within it the newly created AgeCheck.php is situated.
 
 To apply the newly created middleware we need to register it within bootstrap/app.php's withMiddleware block after importing our middleware.
+
+Hit url like "http://localhost:8000/abt/Ram/?age=21&country=ind&gender=male&dis=na" to check effect of grouped middleware implementation if implemented on any route.
 -----------------------------------------------------------------------------------------

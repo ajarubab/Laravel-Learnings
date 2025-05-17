@@ -75,7 +75,7 @@ Route::get('/jai', [FirstCustomViewController::class, 'showDyNamedRoutedFunction
 Route::get('/std', [StudentController::class, 'show']);
 
 Route::controller(StudentController::class)->group(function () {
-    Route::get("/abt/{x?}", 'about');
+    Route::get("/abt/{x?}", 'about')->middleware('CDG_check');
     Route::prefix('student/academics')->group(function () {
         Route::get("/firstyear", 'firstYearAcademics')->name('saf');
         Route::get("/secondyear", 'secondYearAcademics')->name('sas');
@@ -83,11 +83,9 @@ Route::controller(StudentController::class)->group(function () {
         Route::get("/lastyear", 'finalYearAcademics')->name('sal');
     });
     Route::prefix('/student/sports')->group(function () {
-        Route::get("/firstyear",'firstYearSports')->name('ssf');
-        Route::get("/secondyear",'secondYearSports')->name('sss');
-        Route::get("/thirdyear",'thirdYearSports')->name('sst');
-        Route::get("/lastyear",'finalYearSports')->name('ssl');
+        Route::get("/firstyear", 'firstYearSports')->name('ssf');
+        Route::get("/secondyear", 'secondYearSports')->name('sss');
+        Route::get("/thirdyear", 'thirdYearSports')->name('sst');
+        Route::get("/lastyear", 'finalYearSports')->name('ssl');
     });
 });
-
-

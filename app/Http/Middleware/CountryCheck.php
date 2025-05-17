@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AgeCheck
+class CountryCheck
 {
     /**
      * Handle an incoming request.
@@ -15,12 +15,13 @@ class AgeCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $validCountry = ['in', 'ind', 'india'];
         if (
-            $request->has('age')
+            $request->has('country')
             &&
-            $request->age < 18
+            !in_array(strtolower($request->country), $validCountry)
         ) {
-            abort(403, "You are under Age.");
+            abort(403, ' You are not an indian.');
         }
         return $next($request);
     }
