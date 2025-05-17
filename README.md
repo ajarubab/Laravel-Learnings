@@ -118,3 +118,12 @@ To create a custom validation rule using artisan command
 9. ➜ php artisan make:rule OnlyDotInDomain
 
 It creates a Folder named Rules in app folder and within it the custum rule files are situated.
+-----------------------------------------------------------------------------------------
+To create a middleware using artisan command
+
+10. ➜ php artisan make:middleware AgeCheck
+
+It creates a Folder named Middleware in app/Http and within it the newly created AgeCheck.php is situated.
+
+To apply the newly created middleware we need to register it within bootstrap/app.php's withMiddleware block after importing our middleware.
+-----------------------------------------------------------------------------------------
