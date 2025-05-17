@@ -89,3 +89,8 @@ Route::controller(StudentController::class)->group(function () {
         Route::get("/lastyear", 'finalYearSports')->name('ssl');
     });
 });
+
+Route::middleware('CDG_check')->group(function(){
+    Route::view('/welcome', 'welcome');
+    Route::view('/home', 'home');
+});
