@@ -3,6 +3,8 @@
 use App\Http\Controllers\FirstCustomViewController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Usercontroller;
+use App\Http\Middleware\FormMiddleware;
+use App\Http\Middleware\UserMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
@@ -55,7 +57,7 @@ Route::get('/welcome', function () {
 // Route::view('/home','home');
 // Route::get('/home',[FirstCustomViewController::class,'isPage']);
 
-Route::get('/user', [Usercontroller::class, 'showMyName']);
+Route::get('/user', [Usercontroller::class, 'showMyName'])->middleware(UserMiddleware::class);
 Route::get('/assignment', [UserController::class, 'showAssignment']);
 Route::view('/welcome', 'welcome');
 Route::view('/fcv', 'firstCustomView');
@@ -63,7 +65,7 @@ Route::view('/fcv/{x}/{y}', 'firstCustomView');
 Route::view('/home', 'home');
 Route::view('/fcv/user/profile/dob', 'firstCustomView')->name('dob');
 
-Route::view('/form', 'user-form');
+Route::view('/form', 'user-form')->middleware(FormMiddleware::class);
 Route::post('/form-data', [Usercontroller::class, 'getUserFormData']);
 
 Route::view('/ab/cd/ef/gh/ij/kl/mn/op/fcv', 'firstCustomView')->name('lfc');
