@@ -4,6 +4,7 @@ use App\Http\Controllers\FirstCustomViewController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Usercontroller;
 use App\Http\Middleware\FormMiddleware;
+use App\Http\Middleware\DocumentUploadedMiddleware;
 use App\Http\Middleware\UserMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -65,7 +66,7 @@ Route::view('/fcv/{x}/{y}', 'firstCustomView');
 Route::view('/home', 'home');
 Route::view('/fcv/user/profile/dob', 'firstCustomView')->name('dob');
 
-Route::view('/form', 'user-form')->middleware(FormMiddleware::class);
+Route::view('/form', 'user-form')->middleware([FormMiddleware::class,DocumentUploadedMiddleware::class]);
 Route::post('/form-data', [Usercontroller::class, 'getUserFormData']);
 
 Route::view('/ab/cd/ef/gh/ij/kl/mn/op/fcv', 'firstCustomView')->name('lfc');
