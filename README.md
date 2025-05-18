@@ -129,3 +129,40 @@ To apply the newly created middleware we need to register it within bootstrap/ap
 
 Hit url like "http://localhost:8000/abt/Ram/?age=21&country=ind&gender=male&dis=na" to check effect of grouped middleware implementation if implemented on any route.
 -----------------------------------------------------------------------------------------
+11. To connect the mysql database with laravel 
+
+         * 1. Go to phpMyAdmin and create a database ( here i created 'laravelLearningDb' named database)
+         * 2. Come to .env file and make changes as below
+         
+                DB_CONNECTION=mysql
+                DB_HOST=127.0.0.1
+                DB_PORT=3306
+                DB_DATABASE=laravelLearningDb
+                DB_USERNAME=root
+                DB_PASSWORD=
+
+         * 3. Now if we run any previously working and existing route, it will show some session error like
+
+"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'laravellearningdb.sessions' doesn't exist (Connection: mysql, SQL: select * from `sessions` where `id` = O5FeYtuKL0tnSnibVLzqiweXOBwfKk6paRKbAEBu limit 1)"
+
+         * 4. Go to terminal and run ' php artisan migrate '
+         * 5. Now refresh the page which was showing session error, it will work fine now.
+         * 6. There will be 9 default tables in our laravellearningdb having users table at last.
+         * 7. In the default EMPTY users table there will be 8 columns having id, name,email,email_verified_at,password,remember_token,created_at and updated_at column.
+         * 8. Create a controller and a route and in controller function using Fasades\DB class run "select * from users" on output we will get [].
+         * 9. Now from phpMyAdmin page click on laravelLearningDb -> users -> insert
+         * 10. Enter the name , email and password and click on go. it will insert a data in users table.
+         * 11. Now again refresh the controllers function's Route, we will get that single inserted data having name, email and password just like below when checked Preety print.
+         
+         [
+            {
+                "id": 1,
+                "name": "Raja",
+                "email": "jai@siya.ram",
+                "email_verified_at": null,
+                "password": "12345",
+                "remember_token": null,
+                "created_at": null,
+                "updated_at": null
+            }
+        ]
