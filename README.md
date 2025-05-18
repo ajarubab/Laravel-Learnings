@@ -166,3 +166,34 @@ Hit url like "http://localhost:8000/abt/Ram/?age=21&country=ind&gender=male&dis=
                 "updated_at": null
             }
         ]
+
+---------------------------------------------------------------------------------------------------
+
+ To Create own cutom table in our databse and then inserting some data there and fetch those data without using "php artisan migrate" command follow the steps below: 
+
+    a. Delete the current database "laravelLearnigDb" and make new database Again with same name.
+    b. Make your own custom table by any name ( here i have named the table 'users' with 4 column Id, Name, Email and Phone.)
+    c. Enter some of data in the table like 2 or 3 person data.
+    d. Now if we run our previous route of users it will show error like :
+
+    "Illuminate\Database\QueryException
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'laravellearningdb.sessions' doesn't exist (Connection: mysql, SQL: select * from `sessions` where `id` = qTPfOCZvInPoOgPq4ZZLCJP6mPtvS4UwMJg0EYfQ limit 1)"
+
+    e. Goto .env file, change the SESSION_DRIVER=database to SESSION_DRIVER=file and the error will get vanished on reload.
+
+    we wiil have our output as :
+
+    [
+        {
+            "Id": 1,
+            "Name": "Raja",
+            "Email": "jai@shree.ram",
+            "Phone": "9090909090"
+        },
+        {
+            "Id": 2,
+            "Name": "Rajat",
+            "Email": "jai@shree.krishna",
+            "Phone": "9090909080"
+        }
+    ]

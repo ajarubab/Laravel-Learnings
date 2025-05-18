@@ -9,5 +9,5 @@ class UserController extends Controller
 {
     function showUser(){
         return DB::select('select * from users');
-    }
+    } 
 }

@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user',[UserController::class,'showUser']);
+Route::get('/user',[UserController::class,'showUser']); 
