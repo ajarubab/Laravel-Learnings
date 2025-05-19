@@ -9,5 +9,9 @@ class UserController extends Controller
 {
     function showUser(){
         return DB::select('select * from users');
-    } 
+    }
+    function usersDetails(){
+        $data = DB::select('select * from users');
+        return view('user',['data'=>$data]);
+    }
 }
