@@ -201,7 +201,7 @@ SQLSTATE[42S02]: Base table or view not found: 1146 Table 'laravellearningdb.ses
 -----------------------------------------------------------------------------------------
 To create a model using artisan command
 
-9. ➜ php artisan make:model Student
+11. ➜ php artisan make:model Student
 
 It is adviced that the model name should be in singular form of pre-existing Table of our database.(i.e. if modal name is 'Student' then the tablename should be 'students' and vice-versa for automatica database_table-model connectivity in laravel.).
 
@@ -218,3 +218,9 @@ To overcome it just Goto your model file(here it is Student.php) and insert a li
 protected $table = 'Changed database_tablename'; (i.e. protected $table = 'it_students'; in my case)
 
 and then reload the page, we will get out output without any error.
+
+-----------------------------------------------------------------------------------------
+To get the Details of any model of our laravel project and its connected database-table details in the terminal
+
+12. ➜ php artisan model:show ModelName 
+( here i have modelname as Student so 'php artisan model:show Student')
