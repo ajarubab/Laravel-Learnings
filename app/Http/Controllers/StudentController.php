@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     function getStudentDetails(){
-        $studentsData = \App\Models\Student::all();
-        return $studentsData;
+        $stdData = \App\Models\Student::all();
+        return view('student', ['StdList' => $stdData]);
     }
 }
