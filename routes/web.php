@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,3 +10,4 @@ Route::get('/', function () {
 
 Route::get('/show',[UserController::class,'showUser']);
 Route::get('/user',[UserController::class,'usersDetails']);
+Route::get('/std',[StudentController::class,'getStudentDetails']);

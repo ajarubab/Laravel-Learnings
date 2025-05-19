@@ -197,3 +197,12 @@ SQLSTATE[42S02]: Base table or view not found: 1146 Table 'laravellearningdb.ses
             "Phone": "9090909080"
         }
     ]
+
+-----------------------------------------------------------------------------------------
+To create a model using artisan command
+
+9. ➜ php artisan make:model Student
+
+It is adviced that the model name should be in singular form of pre-existing Table of our database.(i.e. if modal name is 'Student' then the tablename should be 'students' and vice-versa for automatica database_table-model connectivity in laravel.).
+
+It creates a folder App\Models wherein our Student.php model exists.
