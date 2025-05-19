@@ -206,3 +206,15 @@ To create a model using artisan command
 It is adviced that the model name should be in singular form of pre-existing Table of our database.(i.e. if modal name is 'Student' then the tablename should be 'students' and vice-versa for automatica database_table-model connectivity in laravel.).
 
 It creates a folder App\Models wherein our Student.php model exists.
+
+-----------------------------------------------------------------------------------------
+
+If somehow the table name in database gets changed (let it be it_students) i the database and if we try to fetch our data we will get an error as :
+
+"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'laravellearningdb.students' doesn't exist (Connection: mysql, SQL: select * from `students`)"
+
+To overcome it just Goto your model file(here it is Student.php) and insert a line of
+
+protected $table = 'Changed database_tablename'; (i.e. protected $table = 'it_students'; in my case)
+
+and then reload the page, we will get out output without any error.
