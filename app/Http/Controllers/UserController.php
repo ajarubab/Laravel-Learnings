@@ -45,4 +45,17 @@ class UserController extends Controller
             abort(403, "Data not exists of Id $id.");
         }
     }
+
+    function getSpecificUserDetails()
+    {
+        $data =  DB::table('users')
+            ->where('Name', 'Rekha')
+            ->get();
+
+        if ($data->isEmpty()) {
+            abort(403, 'Search failed, Data not Found.');
+        } else {
+            return view('user', ['data' => $data]);
+        }
+    }
 }
