@@ -96,4 +96,17 @@ class UserController extends Controller
             abort(403, 'Updation failed, Data not Found or Data is already Updated.');
         }
     }
+
+    function deleteUserDetails()
+    {
+        $data = DB::table('users')
+            ->where('Name', 'Rakesh Sharma')
+            ->delete();
+
+        if ($data) {
+            return $this->getUserTableDetails();
+        } else {
+            abort(403, 'Deletion failed, Data not Found.');
+        }
+    }
 }
