@@ -34,6 +34,17 @@ class UserController extends Controller
             abort(403, 'Table is Empty');
         }
     }
+    
+    function getLastUserDetails()
+    {
+        $data = DB::table('users')->orderBy('id', 'desc')->first(); // return single Object type output to $data
+        if ($data) {
+            $data = [$data];    // to iterate data by foreach loop in view file it should be either a collection or an Array
+            return view('user', ['data' => $data]);
+        } else {
+            abort(403, 'Table is Empty');
+        }
+    }
 
     function getSpecificUserIdDetail($id)
     {
