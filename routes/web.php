@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IpTrackerController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -11,3 +12,6 @@ Route::get('/', function () {
 Route::get('/show',[UserController::class,'showUser']);
 Route::get('/user',[UserController::class,'usersDetails']);
 Route::get('/stdDet',[StudentController::class,'getStudentDetails']);
+
+Route::get('/myip',[IpTrackerController::class,'getMyIP']);
+Route::get('/ipDet',[IpTrackerController::class,'getRandomIpDetails']);
