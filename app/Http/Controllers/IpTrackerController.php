@@ -41,6 +41,6 @@ class IpTrackerController extends Controller
             $ipData = $this->getIpLocationDetails($ipAdd);
         } while (!isset($ipData['country']));  // Retry if no country info
 
-        return response()->json(['ipDetails' => $ipData]);
+        return view('ipDetails', ['ipData' => $ipData]);
     }
 }
