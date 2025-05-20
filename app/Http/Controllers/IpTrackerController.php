@@ -10,10 +10,32 @@ use Illuminate\Http\JsonResponse;
 class IpTrackerController extends Controller
 {
     // getting own ip address using API call 
-    function getMyIp()
+    function getUserData()
     {
-        $apiResponse = Http::get('https://api.ipify.org/?format=json');
-        return $apiResponse;
+        $randaomvalue = rand(1, 10); // as API have only 10 person data
+        $apiResponse = Http::get("https://jsonplaceholder.typicode.com/users/{$randaomvalue}");
+
+        // print_r($apiResponse->status());
+        // print_r($apiResponse->headers());
+
+        // method 1 to fetch data as an Object by the syntax {{"$data->name"}} in view file
+        // $data = $apiResponse->object();   // returns an object
+        // return view('user', ['data' => $data]);
+
+        // method 2 to fetch data as an Object by the syntax {{"$data->name"}} in view file
+        // $res = $apiResponse->body(); // returns raw string
+        // return view('user', ['data' => json_decode($res)]);  // conversion of raw string into Object
+        
+
+        // Method to fetch data as array by the syntax {{$data['name']}} in view file
+        if ($apiResponse->successful()) {
+            $data = $apiResponse->json();  //Exracts and Decodes the JSON body from the response into a PHP associative array
+            echo "<pre>";
+            echo "Status Code : ".$apiResponse->status().'<br><br>';
+            print_r($data);
+            echo "</pre>";
+            return view('user',['details' => $data]);
+        }
     }
 
     /**
