@@ -1,21 +1,27 @@
 <div>
-    <h1>Student List</h1>
+    <h1>Student Registration Form</h1>
 </div>
 <div>
-    <table border="2px">
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Class</td>
-            <td>Roll No</td>
-        </tr>
-        @foreach($StdList as $std)
-        <tr>
-            <td>{{$std->Id}}</td>
-            <td>{{$std->Name}}</td>
-            <td>{{$std->Class}}</td>
-            <td>{{$std->RollNo}}</td>
-        </tr>
-        @endforeach
-    </table>
+    <form action="\stdDet" method="post">
+        @csrf
+        <div class="std-form">
+            <label for="name">Student Name : </label>
+            <input type="text" name="name" placeholder="Enter name">
+        </div><br>
+        <div class="std-form">
+            <label for="class">Student Class : </label>
+            <input type="text" name="class" placeholder="Enter class">
+        </div><br>
+        <div class="std-form">
+            <label for="section">Student Section : </label>
+            <input type="text" name="section" placeholder="Enter section">
+        </div><br>
+        <div class="std-form">
+            <label for="roll">Student Roll : </label>
+            <input type="text" name="roll" placeholder="Enter Roll No">
+        </div><br>
+        <div class="std-form">
+            <button type="submit">Submit</button>
+        </div><br>
+    </form>
 </div>

@@ -11,7 +11,7 @@ Route::get('/', function () {
 
 Route::get('/show',[UserController::class,'showUser']);
 Route::get('/user',[UserController::class,'usersDetails']);
-Route::get('/stdDet',[StudentController::class,'getStudentDetails']);
+// Route::get('/stdDet',[StudentController::class,'getStudentDetails']);
 
 Route::get('/userDet',[IpTrackerController::class,'getUserData']);
 Route::get('/ipDet',[IpTrackerController::class,'getRandomIpDetails']);
@@ -27,3 +27,5 @@ Route::get('/deleteUser',[UserController::class,'deleteUserDetails']);
 Route::get('/deleteTop',[UserController::class,'deleteTopUser']);
 Route::get('/deleteLast',[UserController::class,'deleteLastUser']);
 
+Route::get('/stdForm',[StudentController::class,'getStudentForm']);
+Route::post('/stdDet',[StudentController::class,'registerStudent']);
