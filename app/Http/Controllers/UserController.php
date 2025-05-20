@@ -34,5 +34,15 @@ class UserController extends Controller
             abort(403, 'Table is Empty');
         }
     }
- 
+
+    function getSpecificUserIdDetail($id)
+    {
+        $data = DB::table('users')->find($id);  // return single Object type output to $data
+        if ($data) {
+            $data = [$data];    // to iterate data by foreach loop in view file it should be either a collection or an Array
+            return view('user', ['data' => $data]);
+        } else {
+            abort(403, "Data not exists of Id $id.");
+        }
+    }
 }
