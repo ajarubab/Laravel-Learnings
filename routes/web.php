@@ -15,3 +15,5 @@ Route::get('/stdDet',[StudentController::class,'getStudentDetails']);
 
 Route::get('/userDet',[IpTrackerController::class,'getUserData']);
 Route::get('/ipDet',[IpTrackerController::class,'getRandomIpDetails']);
+
+Route::get('/userDetails',[UserController::class,'getUserTableDetails']);

@@ -7,11 +7,20 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    function showUser(){
+    function showUser()
+    {
         return DB::select('select * from users');
     }
-    function usersDetails(){
+
+    function usersDetails()
+    {
         $data = DB::select('select * from users');
-        return view('user',['data'=>$data]);
+        return view('user', ['data' => $data]);
+    }
+
+    function getUserTableDetails()
+    {
+        $data =  DB::table('users')->get();
+        return view('user', ['data' => $data]);
     }
 }
