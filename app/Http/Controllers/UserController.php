@@ -79,4 +79,21 @@ class UserController extends Controller
 
         return $this->getUserTableDetails();
     }
+
+    function updateUserDetails()
+    {
+        $data = DB::table('users')
+            ->where('Name', 'Rekha')
+            ->update([
+                'Phone' => '9011405060',
+                'Email' => 'Re@khaa.com'
+            ]);
+
+        if ($data) {
+            echo "Updation Successfull for user 'Rekha'.<br>";
+            return $this->getUserTableDetails();
+        } else {
+            abort(403, 'Updation failed, Data not Found or Data is already Updated.');
+        }
+    }
 }
