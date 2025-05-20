@@ -109,4 +109,30 @@ class UserController extends Controller
             abort(403, 'Deletion failed, Data not Found.');
         }
     }
+    
+    function deleteTopUser()
+    {
+        $lastRecord = DB::table('users')->orderBy('Id')->first();
+
+        if ($lastRecord) {
+            DB::table('users')->where('Id', $lastRecord->Id)->delete();
+            echo "Top user deleted successfully.";
+            return $this->getUserTableDetails();
+        }
+
+        return "No Top user found, table is empty.";
+    }
+
+    function deleteLastUser()
+    {
+        $lastRecord = DB::table('users')->orderByDesc('Id')->first();
+
+        if ($lastRecord) {
+            DB::table('users')->where('Id', $lastRecord->Id)->delete();
+            echo "Last user deleted successfully.";
+            return $this->getUserTableDetails();
+        }
+
+        return "No Last user found, table is empty.";
+    }
 }

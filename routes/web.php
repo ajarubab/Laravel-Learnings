@@ -23,6 +23,6 @@ Route::get('/getMyUser',[UserController::class,'getSpecificUserDetails']);
 Route::get('/insertUser',[UserController::class,'insertSingleUniqueUserDetails']);
 Route::get('/updateUser',[UserController::class,'updateUserDetails']);
 Route::get('/deleteUser',[UserController::class,'deleteUserDetails']);
-
-
+Route::get('/deleteTop',[UserController::class,'deleteTopUser']);
+Route::get('/deleteLast',[UserController::class,'deleteLastUser']);
 
