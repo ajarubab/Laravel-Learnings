@@ -58,4 +58,25 @@ class UserController extends Controller
             return view('user', ['data' => $data]);
         }
     }
+
+    function insertSingleUniqueUserDetails()
+    {
+        $exists = DB::table('users')
+            ->where('Email', 'Reshma@tyagi.com')
+            ->where('Phone', '9990999088')
+            ->exists();
+
+
+        if (!$exists) {
+            DB::table('users')->insert([
+                'Name'  => 'Reshma Tyagi',
+                'Email' => 'Reshma@tyagi.com',
+                'Phone' => '9990999088'
+            ]);
+        } else {
+            abort(403, 'Insertion Failed Due to Duplicate Entry of Email or Phone.');
+        }
+
+        return $this->getUserTableDetails();
+    }
 }

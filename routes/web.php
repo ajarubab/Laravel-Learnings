@@ -20,3 +20,5 @@ Route::get('/userDetails',[UserController::class,'getUserTableDetails']);
 Route::get('/firstUser',[UserController::class,'getFisrtUserDetails']);
 Route::get('/userid/{id}',[UserController::class,'getSpecificUserIdDetail']);
 Route::get('/getMyUser',[UserController::class,'getSpecificUserDetails']);
+Route::get('/insertUser',[UserController::class,'insertSingleUniqueUserDetails']);
+
