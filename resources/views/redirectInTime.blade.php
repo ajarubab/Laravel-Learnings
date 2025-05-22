@@ -12,6 +12,7 @@
     </div>
     <div>
         <table border="2px">
+
             <tr>
                 <td>Id</td>
                 <td>Roll No</td>
@@ -28,6 +29,7 @@
                 <td>{{$dt->Section}}</td>
             </tr>
             @endforeach
+            
         </table>
     </div>
 </body>
