@@ -27,9 +27,11 @@ Route::get('/deleteUser',[UserController::class,'deleteUserDetails']);
 Route::get('/deleteTop',[UserController::class,'deleteTopUser']);
 Route::get('/deleteLast',[UserController::class,'deleteLastUser']);
 
-Route::get('/stdForm',[StudentController::class,'getStudentForm']);
-Route::post('/stdDet',[StudentController::class,'registerStudent']);
+Route::get('/stdForm',[StudentController::class,'addStudentForm']);
+// Route::post('/stdDet',[StudentController::class,'registerStudent']);
 
 Route::get('/showdata',[StudentController::class,'showStudentData']);
 Route::get('/edit/{id?}',[StudentController::class,'editStudentData'])->name('stdEdt');
-Route::post('/update/{id?}',[StudentController::class,'updateStudentData'])->name('stdUpd');
+
+// Route::post('/update/{id?}',[StudentController::class,'updateStudentData'])->name('stdUpd');
+Route::post('/add/{id?}',[StudentController::class,'storeStudentData'])->name('stdStore');

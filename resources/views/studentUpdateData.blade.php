@@ -2,7 +2,7 @@
     <h1>Student Data Updation Page</h1>
 </div>
 <div>
-    <form action="{{route('stdUpd',[$data->Id])}}" method="post">
+    <form action="{{route('stdStore',[$data->Id])}}" method="post">
         @csrf
         <div class="std-form">
             <label for="name">Student Name : </label>

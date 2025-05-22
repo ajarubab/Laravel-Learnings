@@ -2,7 +2,7 @@
     <h1>Student Registration Form</h1>
 </div>
 <div>
-    <form action="\stdDet" method="post">
+    <form action="{{route('stdStore')}}" method="post">
         @csrf
         <div class="std-form">
             <label for="name">Student Name : </label>

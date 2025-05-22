@@ -7,41 +7,41 @@ use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
-    function getStudentForm()
+    function addStudentForm()
     {
         return view('student');
     }
 
-    function registerStudent(Request $req)
-    {
-        $data = [
-            'Name' => $req->name,
-            'Class' => $req->class,
-            'RollNo' => $req->roll,
-            'Section' => $req->section,
-        ];
+    // function registerStudent(Request $req)
+    // {
+    //     $data = [
+    //         'Name' => $req->name,
+    //         'Class' => $req->class,
+    //         'RollNo' => $req->roll,
+    //         'Section' => $req->section,
+    //     ];
 
-        $exists = DB::table('students')->where([
-            'Name' => $req->name,
-            'Class' => $req->class,
-            'RollNo' => $req->roll,
-            'Section' => $req->section
-        ])->exists();
+    //     $exists = DB::table('students')->where([
+    //         'Name' => $req->name,
+    //         'Class' => $req->class,
+    //         'RollNo' => $req->roll,
+    //         'Section' => $req->section
+    //     ])->exists();
 
-        if (!$exists) {
-            $dataId = DB::table('students')
-                ->insertGetId($data);    // inserts the data and returns the Id of record
-            $insertedRow = DB::table('students')
-                ->where('Id', $dataId)
-                ->first();    //return Object usefull for one row data fetch
-            return view('redirectInTime', [
-                'data' => [$insertedRow],
-                'message' => 'Data inserted successfully'
-            ]);
-        } else {
-            abort(403, 'Insertion Failed Due to Duplicate Entry of Class , Section and Roll No.');
-        }
-    }
+    //     if (!$exists) {
+    //         $dataId = DB::table('students')
+    //             ->insertGetId($data);    // inserts the data and returns the Id of record
+    //         $insertedRow = DB::table('students')
+    //             ->where('Id', $dataId)
+    //             ->first();    //return Object usefull for one row data fetch
+    //         return view('redirectInTime', [
+    //             'data' => [$insertedRow],
+    //             'message' => 'Data inserted successfully'
+    //         ]);
+    //     } else {
+    //         abort(403, 'Insertion Failed Due to Duplicate Entry of Class , Section and Roll No.');
+    //     }
+    // }
 
     function showStudentData()
     {
@@ -80,6 +80,24 @@ class StudentController extends Controller
         } else {
             abort(403, 'Data Updtaion failed due to unknown error.');
         }
+    }
 
+    function storeStudentData(Request $rq){
+        $id = $rq->id;
+        $data = [
+            'Name' => $rq->name,
+            'Class' => $rq->class,
+            'RollNo' => $rq->roll,
+            'Section' => $rq->section,
+        ];
+        $result = DB::table('students')
+            ->where('Id', $id)
+            ->updateOrInsert(['id'=>$id],$data);
+        
+        if($result){
+            return redirect("/showdata");
+        } else {
+            abort(403, 'Data Addition/Updtaion failed due to unknown error.');
+        }
     }
 }
