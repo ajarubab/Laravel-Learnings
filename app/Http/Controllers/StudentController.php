@@ -42,4 +42,21 @@ class StudentController extends Controller
             abort(403, 'Insertion Failed Due to Duplicate Entry of Class , Section and Roll No.');
         }
     }
+
+    function showStudentData()
+    {
+        $data = DB::table('students')
+            ->where('Name', 'like', 's%')
+            ->orwhere('Section', 'A')
+            ->get();
+        
+        if($data->isNotEmpty()){
+            return view('redirectInTime', [
+                'data' => $data,
+                'message' => 'Data Found successfully'
+            ]);
+        } else {
+            abort(403, 'No Such Data Found.');
+        }
+    }
 }

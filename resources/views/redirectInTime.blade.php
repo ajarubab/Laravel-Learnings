@@ -3,7 +3,7 @@
 
 <head>
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="3;url=/stdForm" />
+    <meta http-equiv="refresh" content="5" />
 </head>
 
 <body>
@@ -30,7 +30,6 @@
             @endforeach
         </table>
     </div>
-    <h1>Redirecting to Registration form in 3 seconds...</h1>
 </body>
 
 </html>
