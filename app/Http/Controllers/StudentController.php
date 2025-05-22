@@ -46,14 +46,17 @@ class StudentController extends Controller
     function showStudentData()
     {
         $data = DB::table('students')
-            ->where('Id','<','10')
-            ->pluck('Name');  // provides one or more matched output in Array form
+        ->select('Id', 'Name','Class',)     // to show multiple columns in output
+        ->whereBetween('Id',[15,20])
+        ->get();
+
         if (!$data) {
             abort(403, 'No Such Data Found.');
         }
         
         echo "<pre>";
         print_r($data);
+        echo "</pre>";
  
     }
 }
