@@ -46,7 +46,7 @@ class StudentController extends Controller
     function showStudentData()
     {
         $data = DB::table('students')
-            ->whereBetween('id',[5,15])
+            ->whereNotBetween('id',[5,15])
             ->get();
         
         if($data->isNotEmpty()){
