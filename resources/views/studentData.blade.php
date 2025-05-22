@@ -2,12 +2,10 @@
 <html>
 
 <head>
-    <title>Redirecting....</title>
-    <meta http-equiv="refresh"  content="2;url=/stdForm" />
+    <title>Student Data Page</title>
 </head>
 
 <body>
-    <h2>{{ $message }}</h2>
     <div>
         <table border="2px">
             <tr>
@@ -16,6 +14,7 @@
                 <td>Name</td>
                 <td>Class</td>
                 <td>Section</td>
+                <td>Edit</td>
             </tr>
             @foreach($data as $dt)
             <tr>
@@ -24,11 +23,11 @@
                 <td>{{$dt->Name}}</td>
                 <td>{{$dt->Class}}</td>
                 <td>{{$dt->Section}}</td>
+                <td><a href="{{route('stdEdt',$dt->Id)}}">Edit</a></td>
             </tr>
             @endforeach
         </table>
     </div>
-    <h1 style="color: red;">Redirecting in 2 seconds....</h1>
 </body>
 
 </html>

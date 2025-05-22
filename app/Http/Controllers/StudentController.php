@@ -45,19 +45,41 @@ class StudentController extends Controller
 
     function showStudentData()
     {
-        $data = DB::table('students')
-        ->select('Id', 'Name','Class',)     // to show multiple columns in output
-        ->whereBetween('Id',[15,20]);
+        $data = DB::table('students')->get();
 
-        $data = $data->addSelect('RollNo')->get();
-
-        if (!$data) {
-            abort(403, 'No Such Data Found.');
+        if ($data->isNotEmpty()) {
+            return view('studentData', [
+                'data' => $data,
+            ]);
+        } else {
+            abort(403, 'No Matched data found.');
         }
-        
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
- 
+    }
+
+    function editStudentData(Request $req){
+        $StudentId = $req->id;
+        $res = DB::table('students')->find($StudentId);
+        return view('studentUpdateData',['data'=>$res]);
+    }
+
+    function updateStudentData(Request $request){
+        $Id = $request->id;
+        $data = [
+            'Name' => $request->name,
+            'Class' => $request->class,
+            'RollNo' => $request->roll,
+            'Section' => $request->section,
+        ];
+
+        $result = DB::table('students')
+            ->where('Id', $Id)
+            ->update($data);
+
+        if($result){
+            return redirect("/showdata");
+        } else {
+            abort(403, 'Data Updtaion failed due to unknown error.');
+        }
+
     }
 }

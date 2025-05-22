@@ -29,4 +29,7 @@ Route::get('/deleteLast',[UserController::class,'deleteLastUser']);
 
 Route::get('/stdForm',[StudentController::class,'getStudentForm']);
 Route::post('/stdDet',[StudentController::class,'registerStudent']);
+
 Route::get('/showdata',[StudentController::class,'showStudentData']);
+Route::get('/edit/{id?}',[StudentController::class,'editStudentData'])->name('stdEdt');
+Route::post('/update/{id?}',[StudentController::class,'updateStudentData'])->name('stdUpd');
