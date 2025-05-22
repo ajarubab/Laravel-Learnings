@@ -9,8 +9,6 @@
 <body>
     <h2>{{ $message }}</h2>
     <div>
-    </div>
-    <div>
         <table border="2px">
             <tr>
                 <td>Id</td>

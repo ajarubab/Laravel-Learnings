@@ -46,8 +46,7 @@ class StudentController extends Controller
     function showStudentData()
     {
         $data = DB::table('students')
-            ->whereNotIn('Class',['12th','11th'])
-            ->whereNotBetween('Id',[20,30])
+            ->whereColumn('Id','>','RollNo')
             ->get();
         
         if($data->isNotEmpty()){
