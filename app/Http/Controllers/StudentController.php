@@ -47,8 +47,9 @@ class StudentController extends Controller
     {
         $data = DB::table('students')
         ->select('Id', 'Name','Class',)     // to show multiple columns in output
-        ->whereBetween('Id',[15,20])
-        ->get();
+        ->whereBetween('Id',[15,20]);
+
+        $data = $data->addSelect('RollNo')->get();
 
         if (!$data) {
             abort(403, 'No Such Data Found.');
