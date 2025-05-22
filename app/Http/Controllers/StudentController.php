@@ -46,16 +46,15 @@ class StudentController extends Controller
     function showStudentData()
     {
         $data = DB::table('students')
-            ->whereColumn('Id','>','RollNo')
-            ->get();
-        
-        if($data->isNotEmpty()){
-            return view('redirectInTime', [
-                'data' => $data,
-                'message' => 'Data Found successfully'
-            ]);
-        } else {
+            ->where('Id','=','25')
+            ->value('Name');    // equivalent to 'SELECT Name FROM students WHERE Id < 15 LIMIT 1;' , only valid for single column value
+
+        if (!$data) {
             abort(403, 'No Such Data Found.');
         }
+        
+        echo "<pre>";
+        print_r($data);
+ 
     }
 }
