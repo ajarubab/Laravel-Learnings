@@ -13,6 +13,7 @@
     <div>
         <table border="2px">
             <tr>
+                <td>Id</td>
                 <td>Roll No</td>
                 <td>Name</td>
                 <td>Class</td>
@@ -20,6 +21,7 @@
             </tr>
             @foreach($data as $dt)
             <tr>
+                <td>{{$dt->Id}}</td>
                 <td>{{$dt->RollNo}}</td>
                 <td>{{$dt->Name}}</td>
                 <td>{{$dt->Class}}</td>
