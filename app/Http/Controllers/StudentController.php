@@ -46,9 +46,8 @@ class StudentController extends Controller
     function showStudentData()
     {
         $data = DB::table('students')
-            ->where('Id','=','25')
-            ->value('Name');    // equivalent to 'SELECT Name FROM students WHERE Id < 15 LIMIT 1;' , only valid for single column value
-
+            ->where('Id','<','10')
+            ->pluck('Name');  // provides one or more matched output in Array form
         if (!$data) {
             abort(403, 'No Such Data Found.');
         }
