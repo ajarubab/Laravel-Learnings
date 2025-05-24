@@ -157,4 +157,14 @@ class StudentController extends Controller
             abort(403, 'No Descending data representation possible.');
         }
     }
+
+    function ShowLastFiveStudentRecords(){
+        $res = DB::table('students')->orderBy('Id', 'Desc')->limit(5)->get()->sortBy('Id');     // if no. of records are not known( BETTER WAY)
+        // $res = DB::table('students')->offset(6)->limit(5)->get();        // if no. of records are know hence offset is known
+        if($res){
+            return view("studentData",['data' => $res]);
+        }else {
+            abort(403, 'No data Found.');
+        }
+    }
 }

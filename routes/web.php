@@ -43,3 +43,4 @@ Route::get('\showNameAsc',[StudentController::class,'ShowNamesInAscendingOrder']
 Route::get('\showNameDesc',[StudentController::class,'ShowNamesInDescendingOrder'])->name('showNamesDesc');
 Route::get('\showClassAsc',[StudentController::class,'ShowClassInAscendingOrder'])->name('showClassAsc');
 Route::get('\showClassDesc',[StudentController::class,'ShowClassInDescendingOrder'])->name('showClassDesc');
+Route::get('\showlastFiveDataOnly',[StudentController::class,'ShowLastFiveStudentRecords'])->name('showLast5');
