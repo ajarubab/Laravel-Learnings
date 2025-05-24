@@ -38,3 +38,8 @@ Route::post('/add/{id?}',[StudentController::class,'storeStudentData'])->name('s
 Route::get('/addNew', [StudentController::class, 'addStudentForm'])->name('addStudent');
 Route::get('/delete/{id?}',[StudentController::class,'deleteStudentData'])->name('stdDlt');
 Route::get('/deleteAllData',[StudentController::class,'eraseAllData'])->name('EraseAll');
+
+Route::get('\showNameAsc',[StudentController::class,'ShowNamesInAscendingOrder'])->name('showNamesAsc');
+Route::get('\showNameDesc',[StudentController::class,'ShowNamesInDescendingOrder'])->name('showNamesDesc');
+Route::get('\showClassAsc',[StudentController::class,'ShowClassInAscendingOrder'])->name('showClassAsc');
+Route::get('\showClassDesc',[StudentController::class,'ShowClassInDescendingOrder'])->name('showClassDesc');

@@ -122,5 +122,39 @@ class StudentController extends Controller
         } catch (\Exception $e) {
             abort(403, 'Erase All Data failed: ' . $e->getMessage());
         }
-    }    
+    }   
+    
+    function ShowNamesInAscendingOrder(){
+        $res = DB::table('students')->orderBy('Name','Asc')->get();
+        if($res){
+            return view("studentData",['data' => $res]);
+        }else {
+            abort(403, 'No Ascending data representation possible.');
+        }
+    }
+    function ShowNamesInDescendingOrder(){
+        $res = DB::table('students')->orderBy('Name','Desc')->get();
+        if($res){
+            return view("studentData",['data' => $res]);
+        }else {
+            abort(403, 'No Descending data representation possible.');
+        }
+    }
+    
+    function ShowClassInAscendingOrder(){
+        $res = DB::table('students')->orderBy('Class','Asc')->get();
+        if($res){
+            return view("studentData",['data' => $res]);
+        }else {
+            abort(403, 'No Ascending data representation possible.');
+        }
+    }
+    function ShowClassInDescendingOrder(){
+        $res = DB::table('students')->orderBy('Class','Desc')->get();
+        if($res){
+            return view("studentData",['data' => $res]);
+        }else {
+            abort(403, 'No Descending data representation possible.');
+        }
+    }
 }
