@@ -53,7 +53,7 @@ class StudentController extends Controller
                 'data' => $data,
             ]);
         } else {
-            abort(403, 'No Matched data found.');
+            abort(403, 'Data not found or table is Empty.');
         }
     }
 
@@ -114,4 +114,13 @@ class StudentController extends Controller
             abort(403, 'Data Removal of Student failed due to unknown error.');
         }
     }
+
+    function eraseAllData(){
+        try {
+            DB::table('students')->truncate();
+            return redirect("/showdata");
+        } catch (\Exception $e) {
+            abort(403, 'Erase All Data failed: ' . $e->getMessage());
+        }
+    }    
 }

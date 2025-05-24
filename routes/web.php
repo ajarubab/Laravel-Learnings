@@ -36,3 +36,4 @@ Route::get('/edit/{id?}',[StudentController::class,'editStudentData'])->name('st
 // Route::post('/update/{id?}',[StudentController::class,'updateStudentData'])->name('stdUpd');
 Route::post('/add/{id?}',[StudentController::class,'storeStudentData'])->name('stdStore');
 Route::get('/delete/{id?}',[StudentController::class,'deleteStudentData'])->name('stdDlt');
+Route::get('/deleteAllData',[StudentController::class,'eraseAllData'])->name('EraseAll');

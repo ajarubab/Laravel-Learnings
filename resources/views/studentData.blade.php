@@ -29,6 +29,7 @@
             </tr>
             @endforeach
         </table>
+        <a href="{{route('EraseAll')}}">Delete all Records </a><br><br>
     </div>
 </body>
 
