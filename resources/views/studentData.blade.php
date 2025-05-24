@@ -15,6 +15,7 @@
                 <td>Class</td>
                 <td>Section</td>
                 <td>Edit</td>
+                <td>Delete</td>
             </tr>
             @foreach($data as $dt)
             <tr>
@@ -24,6 +25,7 @@
                 <td>{{$dt->Class}}</td>
                 <td>{{$dt->Section}}</td>
                 <td><a href="{{route('stdEdt',$dt->Id)}}">Edit</a></td>
+                <td><a href="{{route('stdDlt',$dt->Id)}}">Delete</a></td>
             </tr>
             @endforeach
         </table>

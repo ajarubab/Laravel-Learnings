@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use LDAP\Result;
 
 class StudentController extends Controller
 {
@@ -98,6 +99,19 @@ class StudentController extends Controller
             return redirect("/showdata");
         } else {
             abort(403, 'Data Addition/Updtaion failed due to unknown error.');
+        }
+    }
+
+    function deleteStudentData(Request $req){
+        $Id = $req->id;
+        $StudentInfo = DB::table('students')->find($Id);
+        $res = DB::table('students')
+            ->where('Id',$Id)
+            ->delete();
+        if($res){
+            return redirect("/showdata");
+        } else {
+            abort(403, 'Data Removal of Student failed due to unknown error.');
         }
     }
 }
