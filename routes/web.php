@@ -39,8 +39,14 @@ Route::get('/addNew', [StudentController::class, 'addStudentForm'])->name('addSt
 Route::get('/delete/{id?}',[StudentController::class,'deleteStudentData'])->name('stdDlt');
 Route::get('/deleteAllData',[StudentController::class,'eraseAllData'])->name('EraseAll');
 
-Route::get('\showNameAsc',[StudentController::class,'ShowNamesInAscendingOrder'])->name('showNamesAsc');
-Route::get('\showNameDesc',[StudentController::class,'ShowNamesInDescendingOrder'])->name('showNamesDesc');
-Route::get('\showClassAsc',[StudentController::class,'ShowClassInAscendingOrder'])->name('showClassAsc');
-Route::get('\showClassDesc',[StudentController::class,'ShowClassInDescendingOrder'])->name('showClassDesc');
-Route::get('\showlastFiveDataOnly',[StudentController::class,'ShowLastFiveStudentRecords'])->name('showLast5');
+Route::get('/showNameAsc',[StudentController::class,'ShowNamesInAscendingOrder'])->name('showNamesAsc');
+Route::get('/showNameDesc',[StudentController::class,'ShowNamesInDescendingOrder'])->name('showNamesDesc');
+Route::get('/showClassAsc',[StudentController::class,'ShowClassInAscendingOrder'])->name('showClassAsc');
+Route::get('/showClassDesc',[StudentController::class,'ShowClassInDescendingOrder'])->name('showClassDesc');
+Route::get('/showlastFiveDataOnly',[StudentController::class,'ShowLastFiveStudentRecords'])->name('showLast5');
+
+Route::get('/total10thStudents', [StudentController::class, 'showTotalCountOf10thClass']);
+Route::get('/maxRollNoOf11th',[StudentController::class,'showMaxRollNoOf11thClass']);
+Route::get('/minRollNoOf12th',[StudentController::class,'showMinRollNoOf12thClass']);
+Route::get('/sumOfRollNoOf09th',[StudentController::class,'showSumOfRollNoOf09thClass']);
+Route::get('/avgOfRollNos',[StudentController::class,'showAvgOfRollNo']);
