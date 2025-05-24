@@ -28,8 +28,9 @@
                 <td><a href="{{route('stdDlt',$dt->Id)}}">Delete</a></td>
             </tr>
             @endforeach
-        </table>
-        <a href="{{route('EraseAll')}}">Delete all Records </a><br><br>
+        </table><br><br>
+        <span><a href="{{route('addStudent')}}">Add New Record </a></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span><a href="{{route('EraseAll')}}">Delete all Records </a></span>
     </div>
 </body>
 
