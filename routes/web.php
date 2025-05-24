@@ -50,3 +50,4 @@ Route::get('/maxRollNoOf11th',[StudentController::class,'showMaxRollNoOf11thClas
 Route::get('/minRollNoOf12th',[StudentController::class,'showMinRollNoOf12thClass']);
 Route::get('/sumOfRollNoOf09th',[StudentController::class,'showSumOfRollNoOf09thClass']);
 Route::get('/avgOfRollNos',[StudentController::class,'showAvgOfRollNo']);
+Route::get('/4RecPerPage',[StudentController::class,'FourRecordsChunksLoad']);

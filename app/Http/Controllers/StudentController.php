@@ -204,4 +204,13 @@ class StudentController extends Controller
         $res = DB::table('students')->avg('RollNo');
         echo "Average of all Roll nos : $res";
     }
+    function FourRecordsChunksLoad(){
+        $res = DB::table('students')->orderBy('Id', 'asc')->chunk(4,function($data){
+            foreach ($data as $dt){
+               echo $dt -> Name;
+               echo "&nbsp;&nbsp;";
+            }
+            echo "<br>";
+        });
+    }
 }
