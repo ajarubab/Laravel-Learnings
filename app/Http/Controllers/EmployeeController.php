@@ -45,14 +45,15 @@ class EmployeeController extends Controller
         //         ]
         //     );
 
-        $empDataUpdate = Employee::where(['Name' => 'Mohan Pyare',])
-            ->delete();
+        // $empDataUpdate = Employee::where(['Name' => 'Mohan Pyare',])
+            // ->delete();
 
-        if (!$empDataUpdate) {
-            abort(403, 'Record deletion failed or not found.');
+        $empDataShow = Employee::firstwhere(['Name' => 'Raja ram',]);
+        if (!$empDataShow) {
+            abort(403, 'Record not found.');
         }
 
-        return view('employee', ['empData' => Employee::all()]);
+        return $empDataShow;
     }
 
     function openEmpRegForm()
