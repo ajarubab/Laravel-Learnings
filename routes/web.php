@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\IpTrackerController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
@@ -51,3 +52,5 @@ Route::get('/minRollNoOf12th',[StudentController::class,'showMinRollNoOf12thClas
 Route::get('/sumOfRollNoOf09th',[StudentController::class,'showSumOfRollNoOf09thClass']);
 Route::get('/avgOfRollNos',[StudentController::class,'showAvgOfRollNo']);
 Route::get('/4RecPerPage',[StudentController::class,'FourRecordsChunksLoad']);
+
+Route::get('/emp',[EmployeeController::class,'showEmpDetails']);

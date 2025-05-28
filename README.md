@@ -224,3 +224,8 @@ To get the Details of any model of our laravel project and its connected databas
 
 12. ➜ php artisan model:show ModelName 
 ( here i have modelname as Student so 'php artisan model:show Student')
+
+-----------------------------------------------------------------------------------------
+To create model and controller of the same name using a single artisan command
+
+13. ➜ php artisan make:model Employee -c 
