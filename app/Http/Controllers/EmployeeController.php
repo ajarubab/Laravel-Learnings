@@ -54,4 +54,22 @@ class EmployeeController extends Controller
 
         return view('employee', ['empData' => Employee::all()]);
     }
+
+    function openEmpRegForm(){
+        return view('empRegForm');
+    }
+
+    function addEmployee(Request $req){
+        $emp = new Employee();
+        $emp->Name = $req->empName;
+        $emp->Email = $req->empEmail;
+        $emp->Phone = $req->empPhone;
+        $res = $emp->save();
+        
+        if (!$res) {
+            abort(403, 'Record Insertion failed.');
+        }
+        echo "Data inserted sucessfully";
+        return view('employee', ['empData' => Employee::all()]);
+    }
 }

@@ -54,3 +54,5 @@ Route::get('/avgOfRollNos',[StudentController::class,'showAvgOfRollNo']);
 Route::get('/4RecPerPage',[StudentController::class,'FourRecordsChunksLoad']);
 
 Route::get('/emp',[EmployeeController::class,'showEmpDetails']);
+Route::get('/empReg',[EmployeeController::class,'openEmpRegForm']);
+Route::post('/empDetails',[EmployeeController::class,'addEmployee']);
