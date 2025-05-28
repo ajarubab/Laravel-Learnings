@@ -37,19 +37,21 @@ class EmployeeController extends Controller
         //     ]
         // );
 
-        $empDataUpdate = Employee::where(['Name' => 'Radhey Shyam',])
-            ->update(
-                [
-                    'Email' => 'Radhey@Radhat.com',
-                    'Phone' => '8080909080'
-                ]
-            );
+        // $empDataUpdate = Employee::where(['Name' => 'Radhey Shyam',])
+        //     ->update(
+        //         [
+        //             'Email' => 'Radhey@Radhat.com',
+        //             'Phone' => '8080909080'
+        //         ]
+        //     );
 
-        if ($empDataUpdate) {
-            $res = Employee::get();
-            return view('employee', ['empData' => $res]);
-        } else {
-            abort(403, 'Data Updation failed or Data Already Updated.');
+        $empDataUpdate = Employee::where(['Name' => 'Mohan Pyare',])
+            ->delete();
+
+        if (!$empDataUpdate) {
+            abort(403, 'Record deletion failed or not found.');
         }
+
+        return view('employee', ['empData' => Employee::all()]);
     }
 }
