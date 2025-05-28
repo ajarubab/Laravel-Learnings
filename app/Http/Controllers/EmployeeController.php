@@ -24,14 +24,25 @@ class EmployeeController extends Controller
         // $res = Employee::orderBy('Name')->get();       // returns records sorted by Name in ascending order
         // $res = Employee::offset(1)->limit(2)->get();        // starts fetching records form index 1 and fetches next 2 records only including index 1 record
         
-        $res = Employee::where('Name','Ram Lal')
-        ->orwhere('Name','like','Si%')
-        ->get();
+        // $res = Employee::where('Name','Ram Lal')
+        // ->orwhere('Name','like','Si%')
+        // ->get();
 
-        
-        return $res;
-        
-        // return view('employee',['empData' => $res]);
+        $empDataInsert = Employee::insert(
+            [
+                'Name' => 'Radhey Shyam',
+                'Email' => 'Radhey@Shyam.com',
+                'Phone' => '9090908080'
+            ]
+        );
+
+        if($empDataInsert){
+            $res = Employee::get(); 
+            return view('employee',['empData' => $res]);
+        }else{
+            abort(403,'Data Insertion failed');
+        }
+
 
     }
 }
