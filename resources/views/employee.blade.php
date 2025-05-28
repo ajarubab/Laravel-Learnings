@@ -6,6 +6,7 @@
             <td>Name</td>
             <td>Email</td>
             <td>Phone</td>
+            <td>Delete</td>
         </tr>
         @foreach ($empData as $dt)
         <tr>
@@ -13,6 +14,7 @@
             <td>{{$dt->Name}}</td>
             <td>{{$dt->Email}}</td>
             <td>{{$dt->Phone}}</td>
+            <td><a href="{{route('delEmp',$dt->Id)}}">Delete</a></td>
         </tr>
         @endforeach
     </table>

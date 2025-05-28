@@ -10,7 +10,7 @@ class EmployeeController extends Controller
     function showEmpDetails()
     {
 
-        // $res = Employee::all(); // equivalent to 'Select * from Employees;' for quick data fetch without any condition
+        $res = Employee::all(); // equivalent to 'Select * from Employees;' for quick data fetch without any condition
         // $res = Employee::get();     // equivalent to 'Select * from Employee;' and required conditions can be added here
 
         // $res = Employee::first();     // equivalent to 'Select * from Employees where Id = 1;'
@@ -46,14 +46,16 @@ class EmployeeController extends Controller
         //     );
 
         // $empDataUpdate = Employee::where(['Name' => 'Mohan Pyare',])
-            // ->delete();
+        // ->delete();
 
-        $empDataShow = Employee::firstwhere(['Name' => 'Raja ram',]);
-        if (!$empDataShow) {
-            abort(403, 'Record not found.');
-        }
+        // $empDataShow = Employee::firstwhere(['Name' => 'Raja ram',]);
+        // if (!$empDataShow) {
+        //     abort(403, 'Record not found.');
+        // }
 
-        return $empDataShow;
+        // return $empDataShow;
+
+        return view('employee', ['empData' => $res]);
     }
 
     function openEmpRegForm()
@@ -74,6 +76,19 @@ class EmployeeController extends Controller
             abort(403, 'Record Insertion failed.');
         }
         echo "Data inserted sucessfully";
+        return view('employee', ['empData' => Employee::all()]);
+    }
+
+    function removeEmployee(Request $req)
+    {
+        $Id = $req->id;
+
+        $result = Employee::where('Id', $Id)->delete();
+
+        if (!$result) {
+            abort(403, 'Deletion failed due to some unknown Error.');
+        }
+
         return view('employee', ['empData' => Employee::all()]);
     }
 }
