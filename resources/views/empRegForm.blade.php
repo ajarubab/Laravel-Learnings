@@ -2,7 +2,7 @@
     <h1>Employee Registration form</h1>
 </div>
 <div>
-    <form action="\empDetails" method="post">
+    <form action="\empDetails" method="post"> 
         @csrf
         <div class="emp-form">
             <label for="empName">Employee Name : </label>
@@ -16,7 +16,7 @@
             <label for="empPhone">Employee Phone : </label>
             <input type="text" name="empPhone" placeholder="Enter Phone Number">
         </div><br>
-        <div class="std-form">
+        <div class="emp-form">
             <button type="submit">Submit</button>
         </div><br>
     </form>
