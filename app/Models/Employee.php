@@ -11,4 +11,6 @@ class Employee extends Model
         'Email',
         'Phone',
     ];
+
+    public $timestamps = false;
 }
