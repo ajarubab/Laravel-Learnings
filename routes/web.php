@@ -53,7 +53,10 @@ Route::get('/sumOfRollNoOf09th',[StudentController::class,'showSumOfRollNoOf09th
 Route::get('/avgOfRollNos',[StudentController::class,'showAvgOfRollNo']);
 Route::get('/4RecPerPage',[StudentController::class,'FourRecordsChunksLoad']);
 
-Route::get('/emp',[EmployeeController::class,'showEmpDetails']);
+Route::get('/emp',[EmployeeController::class,'showEmpDetails'])->name('employeePage');
 Route::get('/delete/employee/{id?}',[EmployeeController::class,'removeEmployee'])->name('delEmp');
 Route::get('/empReg',[EmployeeController::class,'openEmpRegForm'])->name('AddEmp');
-Route::post('/empDetails',[EmployeeController::class,'addEmployee']); 
+Route::post('/empDetails',[EmployeeController::class,'addEmployee']);
+
+Route::post('/delete-multiple', [EmployeeController::class, 'deleteMultipleEmployees'])
+     ->name('deleteMultipleEmployees');

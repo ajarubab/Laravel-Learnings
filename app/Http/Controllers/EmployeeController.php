@@ -75,8 +75,8 @@ class EmployeeController extends Controller
         if (!$res) {
             abort(403, 'Record Insertion failed.');
         }
-        echo "Data inserted sucessfully";
-        return view('employee', ['empData' => Employee::all()]);
+
+        return redirect()->route('employeePage');
     }
 
     function removeEmployee(Request $req)
@@ -88,6 +88,24 @@ class EmployeeController extends Controller
 
         if (!$result) {
             abort(403, 'Deletion failed due to some unknown Error.');
+        }
+
+        return view('employee', ['empData' => Employee::all()]);
+    }
+
+    public function deleteMultipleEmployees(Request $req)
+    {
+        $ids = $req->input('ids', []);
+
+        if (count($ids) == 0) {
+            echo '<h1 style="color:red">Please select atleast 1 record to delete</h1>';
+            return view('employee', ['empData' => Employee::all()]);
+        }
+
+        $deletedCount = Employee::destroy($ids);
+
+        if ($deletedCount === 0) {
+            abort(403, 'Deletion failed. Records might not exist.');
         }
 
         return view('employee', ['empData' => Employee::all()]);
