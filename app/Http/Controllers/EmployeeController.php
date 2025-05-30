@@ -82,8 +82,8 @@ class EmployeeController extends Controller
     function removeEmployee(Request $req)
     {
         $Id = $req->id;
-
-        $result = Employee::where('Id', $Id)->delete();
+        // $result = Employee::where('Id', $Id)->delete();
+        $result = Employee::find($Id)->delete();
 
         if (!$result) {
             abort(403, 'Deletion failed due to some unknown Error.');
