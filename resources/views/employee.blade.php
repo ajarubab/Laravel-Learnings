@@ -18,4 +18,5 @@
         </tr>
         @endforeach
     </table>
+    <br><span><a href="{{route('AddEmp')}}">Add New Employee</a></span>
 </div>
