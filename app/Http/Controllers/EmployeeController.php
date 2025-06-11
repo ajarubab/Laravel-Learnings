@@ -110,4 +110,37 @@ class EmployeeController extends Controller
 
         return view('employee', ['empData' => Employee::all()]);
     }
+
+    function editEmployeeDetails(Request $req)
+    {
+        $id = $req->id;
+        $empdtl = Employee::find($id);
+        return view('empEditForm', ['empDtls' => $empdtl]);
+    }
+
+    function updateEmployeeDetails(Request $req)
+    {
+        $id = $req->empId;
+
+        // Method 1 of updation of data
+        $empdata = Employee::find($id);
+        $empdata->Name = $req->empName;
+        $empdata->Email = $req->empEmail;
+        $empdata->Phone = $req->empPhone;
+        $res = $empdata->save();
+
+        // Method 2 of updation of data
+        // $data = array(
+        //     'Name' => $req->empName,
+        //     'Email' => $req->empEmail,
+        //     'Phone' => $req->empPhone,
+        // );
+        // $res = Employee::find($id)->update($data);
+
+        if (!$res) {
+            abort(403, 'Failed to update employee details.');
+        }
+
+        return view('employee', ['empData' => Employee::all()]);
+    }
 }

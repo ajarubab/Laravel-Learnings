@@ -15,6 +15,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Delete</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
                 <td>{{ $dt->Email }}</td>
                 <td>{{ $dt->Phone }}</td>
                 <td><a href="{{ route('delEmp', $dt->Id) }}">Delete</a></td>
+                <td><a href="{{ route('editEmp', $dt->Id) }}">Edit</a></td>
             </tr>
             @endforeach
         </tbody>
@@ -47,6 +49,10 @@
     // Redirect to Add Employee page
     const addEmployeeUrl = "{{ route('AddEmp') }}";
     document.getElementById('add-employee-btn')?.addEventListener('click', () => window.location = addEmployeeUrl);
+    
+    // Redirect to Edit Employee page
+    const editEmployeeUrl = "{{ route('editEmp') }}";
+    document.getElementById('edit-employee-btn')?.addEventListener('click', () => window.location = editEmployeeUrl);
 
     // Toggle Multi Delete Mode
     const toggleBtn = document.getElementById('toggle-multi-delete');

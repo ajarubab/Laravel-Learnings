@@ -59,4 +59,7 @@ Route::get('/empReg',[EmployeeController::class,'openEmpRegForm'])->name('AddEmp
 Route::post('/empDetails',[EmployeeController::class,'addEmployee']);
 
 Route::post('/delete-multiple', [EmployeeController::class, 'deleteMultipleEmployees'])
-     ->name('deleteMultipleEmployees');
+->name('deleteMultipleEmployees');
+
+Route::get('/editEmp/{id?}',[EmployeeController::class,'editEmployeeDetails'])->name('editEmp');
+Route::post('/updateEmp/{id?}',[EmployeeController::class,'updateEmployeeDetails'])->name('updateEmp');
