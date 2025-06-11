@@ -163,11 +163,12 @@ class EmployeeController extends Controller
         $id = $req->id;
 
         $data = [
+            'id' => $id,
             'Name' => $req->empName,
             'Email' => $req->empEmail,
             'Phone' => $req->empPhone
         ];
-        $res = Employee::updateOrCreate(['id' => $id],$data);
+        $res = Employee::upsert($data,['id'],['Name','Phone']);     // there  to update all 3 column value we use ['Name','Email','Phone'] (3rd argument specific updation occurs with it)
 
         if (!$res) {
             abort(403, 'Record Insertion failed.');
