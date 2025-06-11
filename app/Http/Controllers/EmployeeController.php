@@ -58,6 +58,7 @@ class EmployeeController extends Controller
         return view('employee', ['empData' => $res]);
     }
 
+    /*
     function openEmpRegForm()
     {
         return view('empRegForm');
@@ -78,6 +79,7 @@ class EmployeeController extends Controller
 
         return redirect()->route('employeePage');
     }
+    */
 
     function removeEmployee(Request $req)
     {
@@ -111,6 +113,7 @@ class EmployeeController extends Controller
         return view('employee', ['empData' => Employee::all()]);
     }
 
+    /*
     function editEmployeeDetails(Request $req)
     {
         $id = $req->id;
@@ -142,5 +145,33 @@ class EmployeeController extends Controller
         }
 
         return view('employee', ['empData' => Employee::all()]);
+    }
+    */
+
+    function add(Request $req){
+
+        $emp = new Employee;
+
+        $id = $req->id;
+        if($id){
+            $emp = Employee::find($id);
+        }
+        return view('empRegForm',compact('emp'));
+    }
+
+    function store(Request $req){
+        $id = $req->id;
+
+        $data = [
+            'Name' => $req->empName,
+            'Email' => $req->empEmail,
+            'Phone' => $req->empPhone
+        ];
+        $res = Employee::updateOrCreate(['id' => $id],$data);
+
+        if (!$res) {
+            abort(403, 'Record Insertion failed.');
+        }
+        return redirect()->route('employeePage');
     }
 }

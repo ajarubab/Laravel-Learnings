@@ -29,7 +29,7 @@
                 <td>{{ $dt->Email }}</td>
                 <td>{{ $dt->Phone }}</td>
                 <td><a href="{{ route('delEmp', $dt->Id) }}">Delete</a></td>
-                <td><a href="{{ route('editEmp', $dt->Id) }}">Edit</a></td>
+                <td><a href="{{ route('emp.add', $dt->Id) }}">Edit</a></td>
             </tr>
             @endforeach
         </tbody>
@@ -47,11 +47,11 @@
 
 <script>
     // Redirect to Add Employee page
-    const addEmployeeUrl = "{{ route('AddEmp') }}";
+    const addEmployeeUrl = "{{ route('emp.add') }}";
     document.getElementById('add-employee-btn')?.addEventListener('click', () => window.location = addEmployeeUrl);
     
     // Redirect to Edit Employee page
-    const editEmployeeUrl = "{{ route('editEmp') }}";
+    const editEmployeeUrl = "{{ route('emp.add') }}";
     document.getElementById('edit-employee-btn')?.addEventListener('click', () => window.location = editEmployeeUrl);
 
     // Toggle Multi Delete Mode

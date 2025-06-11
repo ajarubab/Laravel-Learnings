@@ -55,11 +55,14 @@ Route::get('/4RecPerPage',[StudentController::class,'FourRecordsChunksLoad']);
 
 Route::get('/emp',[EmployeeController::class,'showEmpDetails'])->name('employeePage');
 Route::get('/delete/employee/{id?}',[EmployeeController::class,'removeEmployee'])->name('delEmp');
-Route::get('/empReg',[EmployeeController::class,'openEmpRegForm'])->name('AddEmp');
-Route::post('/empDetails',[EmployeeController::class,'addEmployee']);
+// Route::get('/empReg',[EmployeeController::class,'openEmpRegForm'])->name('AddEmp');
+// Route::post('/empDetails',[EmployeeController::class,'addEmployee']);
 
 Route::post('/delete-multiple', [EmployeeController::class, 'deleteMultipleEmployees'])
 ->name('deleteMultipleEmployees');
 
-Route::get('/editEmp/{id?}',[EmployeeController::class,'editEmployeeDetails'])->name('editEmp');
-Route::post('/updateEmp/{id?}',[EmployeeController::class,'updateEmployeeDetails'])->name('updateEmp');
+// Route::get('/editEmp/{id?}',[EmployeeController::class,'editEmployeeDetails'])->name('editEmp');
+// Route::post('/updateEmp/{id?}',[EmployeeController::class,'updateEmployeeDetails'])->name('updateEmp');
+
+Route::get('employee/addOrUpdate/{id?}',[EmployeeController::class,'add'])->name('emp.add');
+Route::post('employee/addOrUpdate/{id?}',[EmployeeController::class,'store'])->name('emp.store');
