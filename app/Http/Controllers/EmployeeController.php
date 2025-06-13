@@ -64,10 +64,16 @@ class EmployeeController extends Controller
         // });
         // exit();
 
-        foreach(Employee::where('Id','<', '102')->cursor() as $emp){
-            echo $emp;
-            echo "<br><br>";
-        }
+        Employee::where('Id', '>', 100)
+            ->orderBy('Id') // always order to maintain sequence
+            ->chunk(2, function ($employees) {
+                foreach ($employees as $emp) {
+                    echo "<pre>";
+                    print_r($emp->toArray());
+                }
+                echo "</pre>-----------------------------------<br><br>";
+            });
+
 
         // return view('employee', ['empData' => $res]);
     }
@@ -162,18 +168,20 @@ class EmployeeController extends Controller
     }
     */
 
-    function add(Request $req){
+    function add(Request $req)
+    {
 
         $emp = new Employee;
 
         $id = $req->id;
-        if($id){
+        if ($id) {
             $emp = Employee::find($id);
         }
-        return view('empRegForm',compact('emp'));
+        return view('empRegForm', compact('emp'));
     }
 
-    function store(Request $req){
+    function store(Request $req)
+    {
         $id = $req->id;
 
         $data = [
@@ -182,7 +190,7 @@ class EmployeeController extends Controller
             'Email' => $req->empEmail,
             'Phone' => $req->empPhone
         ];
-        $res = Employee::upsert($data,['id'],['Name','Phone']);     // there  to update all 3 column value we use ['Name','Email','Phone'] (3rd argument specific updation occurs with it)
+        $res = Employee::upsert($data, ['id'], ['Name', 'Phone']);     // there  to update all 3 column value we use ['Name','Email','Phone'] (3rd argument specific updation occurs with it)
 
         if (!$res) {
             abort(403, 'Record Insertion failed.');
