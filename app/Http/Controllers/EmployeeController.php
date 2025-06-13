@@ -55,14 +55,19 @@ class EmployeeController extends Controller
 
         // return $empDataShow;
 
-        Employee::chunk(3, function($emp){
-            foreach ($emp as $e){
-                echo "<pre>";
-                echo ($e);
-            }
+        // Employee::chunk(3, function($emp){
+        //     foreach ($emp as $e){
+        //         echo "<pre>";
+        //         echo ($e);
+        //     }
+        //     echo "<br><br>";
+        // });
+        // exit();
+
+        foreach(Employee::where('Id','<', '102')->cursor() as $emp){
+            echo $emp;
             echo "<br><br>";
-        });
-        exit();
+        }
 
         // return view('employee', ['empData' => $res]);
     }
