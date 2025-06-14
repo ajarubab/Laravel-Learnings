@@ -229,3 +229,19 @@ To get the Details of any model of our laravel project and its connected databas
 To create model and controller of the same name using a single artisan command
 
 13. ➜ php artisan make:model Employee -c 
+
+-----------------------------------------------------------------------------------------
+To create model with migration and controller of the same name using a single artisan command
+
+14. ➜ php artisan make:model Customer -mc
+
+-----------------------------------------------------------------------------------------
+To recreate all tables of our databse in mysql database using a single artisan command
+
+15. ➜ php artisan migrate
+
+-----------------------------------------------------------------------------------------
+To create a single new table in our mysql databse using a single artisan command
+
+16. ➜ php artisan migrate  --path=relative_path_of_table
+e.g php artisan migrate --path=database/migrations/2025_06_14_143511_create_customers_table.php
