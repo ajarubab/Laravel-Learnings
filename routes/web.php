@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\IpTrackerController;
 use App\Http\Controllers\StudentController;
@@ -66,3 +67,5 @@ Route::post('/delete-multiple', [EmployeeController::class, 'deleteMultipleEmplo
 
 Route::get('employee/addOrUpdate/{id?}',[EmployeeController::class,'add'])->name('emp.add');
 Route::post('employee/addOrUpdate/{id?}',[EmployeeController::class,'store'])->name('emp.store');
+
+Route::get('/addCustomer',[CustomerController::class,'fillDataIntoTable']);
