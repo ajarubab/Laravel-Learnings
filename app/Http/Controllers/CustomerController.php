@@ -76,4 +76,34 @@ class CustomerController extends Controller
             echo "<h1>Data Inserted Sucessfully.</h1>";
         }
     }
+
+    function updateDataOfTable(){
+
+
+        // single record update
+        /*
+        $customer = Customer::find(2);
+        $customer->name = "Ranjit Sharma";
+        $customer->phone = 9234090990;
+        $customer->gender = 'M';
+        $customer->birth_date = "1993-08-18";
+        $customer->wallet_balance = 290.65;
+        $customer->total_visits = 34;
+        $customer->customer_rating = 3.8;
+        $customer->prime_customer_code = "";
+        $customer->email = "ranjit@sharma.com";
+        $customer->comments = "Jai siya ram";
+        $res = $customer->save();
+        */
+
+        // Multiple record columns updation
+
+        $res = Customer::where('total_visits', '>', '30')->update(['wallet_balance' => 2000.66,'prime_customer_code' => 'PRM']);
+
+        if (!$res) {
+            abort(403, 'Updation Failed due to some unknown reason.');
+        } else {
+            echo "<h1>Data Updation was Sucessfull.</h1>";
+        }
+    }
 }
