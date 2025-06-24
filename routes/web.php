@@ -75,4 +75,6 @@ Route::get('/updateCustomer',[CustomerController::class,'updateDataOfTable']);
 Route::get('/plantData',[PlantController::class,'getPlantDetails']);
 Route::post('/plantData',[PlantController::class,'postPlantDetails']);
 Route::put('/plantData',[PlantController::class,'putPlantDetails']);
+Route::patch('/plantData',[PlantController::class,'patchPlantDetails']);
+Route::delete('/plantData',[PlantController::class,'deletePlantDetails']);
 Route::view('/wc','welcome');

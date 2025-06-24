@@ -16,4 +16,12 @@ class PlantController extends Controller
         echo "PUT Route Called.\n";
         return $req;
     }
+    function patchPlantDetails(Request $req){
+        echo "PATCH Route Called.\n";
+        return $req;
+    }
+    function deletePlantDetails(Request $req){
+        echo "Delete Route Called.\n";
+        return $req;
+    }
 }
