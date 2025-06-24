@@ -9,4 +9,7 @@ class PlantController extends Controller
     function getPlantDetails(Request $req){
         return $req;
     }
+    function postPlantDetails(Request $req){
+        return $req;
+    }
 }

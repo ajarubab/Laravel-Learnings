@@ -73,4 +73,5 @@ Route::get('/addCustomer',[CustomerController::class,'fillDataIntoTable']);
 Route::get('/updateCustomer',[CustomerController::class,'updateDataOfTable']);
 
 Route::get('/plantData',[PlantController::class,'getPlantDetails']);
+Route::post('/plantData',[PlantController::class,'postPlantDetails']);
 Route::view('/wc','welcome');

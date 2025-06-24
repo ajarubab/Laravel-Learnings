@@ -1,6 +1,7 @@
 <div>
     <h1>Welcome page</h1><br>
-    <form action="/plantData" method="get">
+    <form action="/plantData" method="post">
+        @csrf
         <label for="CountryName">Plant Name</label>
         <input type="text" name="PlantName" placeholder="Enter Plant Name"><br><br>
         <label for="Pincode">Area Pin Code </label>
