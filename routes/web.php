@@ -3,6 +3,7 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\IpTrackerController;
+use App\Http\Controllers\PlantController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -70,3 +71,6 @@ Route::post('employee/addOrUpdate/{id?}',[EmployeeController::class,'store'])->n
 
 Route::get('/addCustomer',[CustomerController::class,'fillDataIntoTable']);
 Route::get('/updateCustomer',[CustomerController::class,'updateDataOfTable']);
+
+Route::get('/plantData',[PlantController::class,'getPlantDetails']);
+Route::view('/wc','welcome');
