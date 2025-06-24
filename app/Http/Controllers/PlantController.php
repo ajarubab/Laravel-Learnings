@@ -12,4 +12,8 @@ class PlantController extends Controller
     function postPlantDetails(Request $req){
         return $req;
     }
+    function putPlantDetails(Request $req){
+        echo "PUT Route Called.\n";
+        return $req;
+    }
 }
